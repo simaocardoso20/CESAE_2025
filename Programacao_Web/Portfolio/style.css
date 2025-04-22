@@ -1,0 +1,365 @@
+h1{
+    color: #0397A3;
+    
+  
+}
+
+h2{
+    color: #0397A3;
+    
+}
+
+/* Font para o título */
+
+
+.festive-regular {
+    font-family: "Festive", cursive;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: clamp(2rem, 10vw, 6.25rem);
+    margin: 0px;
+}
+
+
+/* Cabeçalho */
+
+.cabecalho {
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  background-size: cover;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+}
+
+
+.logo {
+  width: 170px; /* ajusta conforme necessário */
+  height: auto;
+  margin-right: 20px;
+}
+
+/* Alerta fixo */
+
+.alert-floating {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: 300px;
+  z-index: 1055;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+.alert-floating svg {
+  width: 20px;
+  height: 20px;
+}
+
+.alert-floating .btn-close {
+  margin-left: auto;
+}
+
+
+/* Barra de Navegação */
+.header {
+    display: flex;
+    justify-content: space-between; /* Puxar a navbar nas extremidades */
+    align-items: center;
+    padding: 10px 20px;
+    color: #0397A3;
+    background-color: white;
+    position: sticky;
+     top: 0;
+    z-index: 100;
+    
+}
+
+/* Este bloco de CSS está comentado e será ignorado pq tenho código Bootstrap */
+
+.navegacao {
+    display: flex; /* Usa flexbox para alinhar os links em linha */
+    justify-content: center; /* Centraliza os links dentro da barra de navegação */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+    
+}
+
+.navegacao a {
+    color: #0397A3;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 25px;
+    transition: color 0.3s;
+}
+
+.navegacao a:hover {
+    color: #ffffff;
+}
+
+/* Navbar a partir do Bootstrap */
+
+.navbar {
+  background-color: #70e5f0 !important;
+  font-family: 'Sriracha', cursive !important;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  color: #ffffff; /* Cor padrão dos links */
+  transition: color 0.3s ease; /* Transição suave para a mudança de cor */
+}
+
+.nav-link:hover {
+  color: #33418d; /* Cor ao passar o mouse */
+}
+
+.nav-link.active {
+  color: #33418d !important; /* Cor da opção selecionada */
+}
+
+/* Estilos para a imagem de fundo mas não está a ser utilizado */
+
+.imagem-fundo {
+    background-image: url('Imagens/pordosol.jpg'); /* Caminho para a sua imagem */
+    background-size: cover; /* A imagem cobre toda a área disponível */
+    background-position: center center; /* Centraliza a imagem */
+    width: 100%; /* Ocupa toda a largura */
+    height: 500px; /* Você pode ajustar a altura conforme necessário */
+  }
+
+  /* Cor de fundo  */
+  body {
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Style para as legendas e Slogans do carousel */
+
+  .carousel-caption h5 {
+    font-size: 3rem; /* Tamanho do título */
+    font-weight: bold;
+  }
+
+  .carousel-caption p {
+    font-size: 1.5rem; /* Tamanho do slogan */
+  }
+
+  .titulo-central {
+    color: rgb(2, 0, 0);
+    font-size: 8vw;
+    background-color: #ffffff;
+    padding: 20px 40px;
+    border-radius: 0px;
+    text-align: center;
+    margin-top: 20px;
+
+  }
+
+  /* Melhorar legibilidade em telas muito pequenas */
+@media (max-width: 400px) {
+  .titulo-central {
+    font-size: 8vw;
+  }
+}
+
+/* Ajuste para telas maiores */
+@media (min-width: 1024px) {
+  .titulo-central {
+    font-size: 48px; /* Fixa um tamanho confortável em desktops */
+  }
+}
+  
+  /* Galeria de lugares */
+  .lugares {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    flex-wrap: wrap;
+  }
+  
+  .lugar {
+    width: 300px;
+    height: 400px;
+    display: flex; /* Usando flexbox */
+    flex-direction: column; /* Organiza a imagem e o texto na vertical */
+    justify-content: space-between; /* Espaça bem o conteúdo */
+    text-align: center;
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+
+  }
+
+  .lugar img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+  }
+  
+  .lugar p {
+    padding: 0px;
+    font-weight: bold;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin: 0; /* Remove a margem externa */
+    align-self: center; /* Centraliza o texto horizontalmente */
+    margin-bottom: 20px; /* Adiciona uma margem inferior para não ficar tão colado à borda */
+    display: flex; /* Flexbox também pode ser usado para alinhar conteúdo dentro do p */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Garante que o texto ocupe o espaço restante */
+  }
+  
+  .lugar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+* {
+    box-sizing: border-box;
+}
+
+/* Texto apresentação */
+
+.intro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #f0f0f0; /* cor de contraste com fundo branco */
+}
+
+.intro-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  background-color: #e6e6e6; /* retângulo */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.intro-text {
+  flex: 1 1 50%;
+  padding: 30px;
+  color: #333;
+}
+
+.intro-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.intro-image {
+  flex: 1 1 50%;
+  min-height: 300px;
+}
+
+.intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    flex-direction: column;
+  }
+
+  .intro-text, .intro-image {
+    flex: 1 1 100%;
+  }
+}
+
+/* Formulário */
+
+.formulario-container {
+    background-color: #f5f5f5;
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formulario-container h2 {
+    text-align: center;
+    color: #0397A3;
+    margin-bottom: 30px;
+  }
+  
+  .formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formulario label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .formulario input,
+  .formulario textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .formulario input:focus,
+  .formulario textarea:focus {
+    border-color: #0397A3;
+    outline: none;
+  }
+  
+  .formulario button {
+    background-color: #0397A3;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+
+  ::placeholder {
+    color: #999;
+    font-style: italic;
+  }
+  
+  .formulario button:hover {
+    background-color: #027680;
+  }
+
+  .rodape {
+    background-color: #1a1a1a;
+    color: #0397A3;
+    padding: 20px;
+    text-align: right; /* Alinha o texto à direita */
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
