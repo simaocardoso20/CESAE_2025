@@ -2,7 +2,7 @@ package FichaPratica02;
 
 import java.util.Scanner;
 
-public class Ex01 {
+public class Ex05 {
     public static void main(String[] args) {
 
         // Criação do Scanner - Vamos ler inputs do utilizador
@@ -18,12 +18,12 @@ public class Ex01 {
         System.out.print("Insira outro número: ");
         num2 = input.nextInt();
 
-        // Imprimir o maior número
-        if (num1 > num2) {
-            System.out.println("Maior: " + num1);
+        // Imprimir o menor número
+        if (num1 < num2) {
+            System.out.println(num1 + "  " +num2);
         } else {
-            System.out.println("Maior: " + num2);
+            System.out.println(num2 + "  " +num1);
         }
-    }
 
     }
+}
