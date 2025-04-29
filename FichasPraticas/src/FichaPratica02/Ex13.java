@@ -19,7 +19,7 @@ public class Ex13 {
 //        if (0 <= 12) {
 //            // Manhã
 //            System.out.println("Resultado: " + horas + ":" + minutos + " AM");
-//        } else if (horas - 12) {
+//   git      } else if (horas - 12) {
 //            // Tarde
 //            System.out.println("Resultado: " + horas + ":" + minutos + " PM");
 //        }
