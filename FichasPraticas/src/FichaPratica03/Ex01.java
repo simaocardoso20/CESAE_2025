@@ -7,7 +7,7 @@ public class Ex01 {
 
        int numero = 1;
                while (numero <= 250) {
-                   System.out.println(numero);
+                   System.out.println("numero: ");
                    numero = numero + 1;
                }
     }
