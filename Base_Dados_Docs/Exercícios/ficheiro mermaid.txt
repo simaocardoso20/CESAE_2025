@@ -1,0 +1,129 @@
+erDiagram
+    EQUIPA ||--o{ JOGADOR : "possui"
+    EQUIPA ||--o{ TREINADOR : "contrata"
+    EQUIPA ||--o{ JOGO_CASA : "joga como casa"
+    EQUIPA ||--o{ JOGO_VISITANTE : "joga como visitante"
+    EQUIPA ||--o{ TITULO : "conquista"
+    JOGADOR ||--|| POSICAO : "atua como"
+    JOGADOR ||--o{ GOLO_MARCADO : "marca"
+    JOGADOR ||--o{ GOLO_ASSISTIDO : "assiste"
+    JOGADOR ||--o{ CARTAO : "recebe"
+    TREINADOR {
+        int id PK
+        string nome
+        string tipo "Principal/Assistente"
+        date data_nascimento
+        date data_contratacao
+        string nacionalidade
+    }
+    EQUIPA {
+        int id PK
+        string nome
+        int ano_fundacao
+        string cidade
+        string pais
+        int id_estadio FK
+    }
+    ESTADIO {
+        int id PK
+        string nome
+        int capacidade
+        string cidade
+        date data_inauguracao
+        string endereco
+    }
+    JOGADOR {
+        int id PK
+        string nome
+        date data_nascimento
+        string nacionalidade
+        int id_equipa FK
+        int id_posicao FK
+        int numero_camisola
+        float altura
+        float peso
+        date data_contratacao
+    }
+    POSICAO {
+        int id PK
+        string nome
+        string abreviacao
+    }
+    JOGO {
+        int id PK
+        int id_equipa_casa FK
+        int id_equipa_visitante FK
+        date data
+        time hora
+        int id_estadio FK
+        int golos_casa
+        int golos_visitante
+        float posse_bola_casa
+        float posse_bola_visitante
+        int publico
+        string arbitro
+    }
+    GOLO {
+        int id PK
+        int id_jogo FK
+        int id_marcador FK
+        int id_assistente FK "Opcional"
+        time minuto
+        string tipo "Normal/Penalti/Livre"
+    }
+    CARTAO {
+        int id PK
+        int id_jogo FK
+        int id_jogador FK
+        time minuto
+        string tipo "Amarelo/Vermelho"
+        string motivo
+    }
+    TITULO {
+        int id PK
+        int id_equipa FK
+        string nome
+        int ano
+        string competicao
+    }
+    TRANSFERENCIA {
+        int id PK
+        int id_jogador FK
+        int id_equipa_origem FK
+        int id_equipa_destino FK
+        date data
+        float valor
+        string tipo_contrato
+    }
+    SALARIO {
+        int id PK
+        int id_jogador FK
+        float valor_mensal
+        date inicio_vigencia
+        date fim_vigencia
+        string moeda
+        boolean inclui_bonus
+    }
+    ESTATISTICA_JOGO {
+        int id PK
+        int id_jogo FK
+        int chutes_casa
+        int chutes_visitante
+        int chutes_a_gol_casa
+        int chutes_a_gol_visitante
+        int escanteios_casa
+        int escanteios_visitante
+        int faltas_casa
+        int faltas_visitante
+        int impedimentos_casa
+        int impedimentos_visitante
+    }
+    ESTADIO ||--o{ EQUIPA : "é casa de"
+    ESTADIO ||--o{ JOGO : "recebe"
+    JOGO ||--o{ GOLO : "contém"
+    JOGO ||--o{ CARTAO : "registra"
+    JOGO ||--|| ESTATISTICA_JOGO : "possui"
+    JOGADOR ||--o{ TRANSFERENCIA : "participa"
+    JOGADOR ||--o{ SALARIO : "recebe"
+    EQUIPA ||--o{ TRANSFERENCIA_ORIGEM : "vende"
+    EQUIPA ||--o{ TRANSFERENCIA_DESTINO : "compra"

@@ -1,0 +1,39 @@
+Entidades Principais:
+
+EQUIPA: Armazena informações sobre os clubes de futebol
+JOGADOR: Contém dados dos jogadores
+TREINADOR: Representa os treinadores principais e assistentes
+JOGO: Registra as partidas entre equipas
+GOLO: Registra os gols marcados em cada jogo
+POSICAO: Define as posições possíveis para os jogadores
+
+Entidades Adicionais:
+
+ESTADIO: Informações sobre os estádios onde as equipas jogam
+CARTAO: Registra cartões amarelos e vermelhos
+TITULO: Histórico de títulos das equipas
+TRANSFERENCIA: Movimentações de jogadores entre equipas
+SALARIO: Informações financeiras sobre remunerações
+ESTATISTICA_JOGO: Estatísticas detalhadas das partidas
+
+Restrições Implementadas:
+
+Treinadores: A relação entre EQUIPA e TREINADOR permite um máximo de três treinadores (um principal e até dois assistentes), controlado pelo atributo "tipo" na entidade TREINADOR
+Posição dos jogadores: Todo JOGADOR está obrigatoriamente associado a uma POSICAO (cardinalidade 1:1)
+Equipas em jogos: Cada JOGO tem obrigatoriamente uma equipa da casa e uma visitante
+Golos: Cada GOLO está obrigatoriamente associado a um jogador marcador e opcionalmente a um assistente
+
+Dados Adicionais:
+
+Incluí histórico de títulos das equipas na entidade TITULO
+Adicionei ESTADIO como entidade separada para maior flexibilidade
+Implementei ESTATISTICA_JOGO para registrar estatísticas avançadas
+Adicionei entidades financeiras: TRANSFERENCIA e SALARIO
+
+Este modelo é suficientemente completo e flexível para gerenciar um campeonato de futebol, permitindo:
+
+Acompanhar desempenho de jogadores e equipas
+Registrar todos os eventos importantes dos jogos
+Manter histórico de títulos e transferências
+Gerenciar informações financeiras
+Analisar estatísticas detalhadas das partidas

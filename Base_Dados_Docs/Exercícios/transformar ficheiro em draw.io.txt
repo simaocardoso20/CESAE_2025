@@ -1,0 +1,4 @@
+Abra o draw.io
+Clique em "Arquivo" > "Importar" > "Mermaid..."
+Cole o código Mermaid na caixa de diálogo
+Clique em "Importar"
