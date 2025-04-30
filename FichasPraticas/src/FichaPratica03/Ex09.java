@@ -9,24 +9,27 @@ public class Ex09 {
         Scanner input = new Scanner(System.in);
 
         // Declarar as variáveis
-        int numero, contagem=0, soma=0;
+        int numero = 0, soma = 1, contador = -1, media;
 
         // Ler números
-        System.out.println("Introduza os números (digite -1 para terminar) ");
-        numero = input.nextInt();
+        System.out.println("Introduza os números: ");
 
         // Ler valores
         while (numero != -1) {
-            soma = soma + numero; // acumula a soma
-            contagem = contagem + 1;
             numero = input.nextInt();
 
-            if (contagem > 0) {
-                double media = (double) soma / contagem;
-                System.out.println("Média dos números: " + media);
-
-            }
-
+            soma = soma + numero;
+            contador++;
         }
+
+        // Calcular e apresentar a media
+
+        System.out.println("Soma: " + soma);
+        System.out.println("Contador: " + contador);
+
+        media = soma / contador;
+        System.out.println("media= " + media);
+
     }
 }
+
