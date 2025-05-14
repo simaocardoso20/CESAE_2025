@@ -9,7 +9,8 @@ public class Ex06 {
         Scanner input = new Scanner(System.in);
 
         // Declarar variáveis
-        int[] vetor = new int[10];
+        int[] vetor = new int[5];
+        boolean crescente = true;
 
         // Ler vetor
         for (int i = 0; i < vetor.length; i++) {
@@ -17,13 +18,19 @@ public class Ex06 {
             vetor[i] = input.nextInt();
         }
 
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] > vetor[i + 1]) {
-                System.out.println("Os números não estão por ordem crescente.");
+        // Perceber se o vetor é crescente
+        for (int i = 1; i < vetor.length; i++) {
 
-
+            if (vetor[i] <= vetor[i - 1]) {
+                crescente = false;
             }
         }
+
+        if (crescente) {
+            System.out.println("Crescente");
+        } else {
+            System.out.println("Não crescente");
+        }
+
     }
 }
-
