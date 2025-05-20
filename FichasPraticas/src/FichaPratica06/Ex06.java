@@ -38,17 +38,17 @@ public class Ex06 {
             switch (opcao) {
                 case 1: // Maior Elemento
                         System.out.println("Maior Elemento: " +maiorElemento(vetorUtilizador));
-                    }
+                    
                     break;
 
                 case 2: // Menor Elemento
                         System.out.println("Menor Elemento: " + menorElemento(vetorUtilizador));
-                    }
+                    
                     break;
 
                 case 3: //  Crescente
                         System.out.println("Crescente: " + crescente(vetorUtilizador));
-                    }
+                    
                     break;
 
                 case 0: // Sair
@@ -60,3 +60,9 @@ public class Ex06 {
                     break;
 
 
+            }
+
+        } while (opcao != 0);
+
+    }
+}
