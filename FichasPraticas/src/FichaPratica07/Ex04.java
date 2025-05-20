@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Ex01 {
+public class Ex04 {
 
     /**
      * Função que imprime o conteúdo de um ficheiro na consola
@@ -26,8 +26,8 @@ public class Ex01 {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        imprimirFicheiro("Ficheiros/exercicio_01.txt");
-        imprimirFicheiro("Ficheiros/exercicio_01_Alternativa02.txt");
+        imprimirFicheiro("Ficheiros/exercicio_04.csv");
+
 
     }
 }

@@ -2,7 +2,8 @@ package FichaPratica_Extra_Condicionais;
 
 import java.util.Scanner;
 
-public class Ex_02 {
+public class Ex02 {
+
     public static void main(String[] args) {
 
         // Declarar Scanner
