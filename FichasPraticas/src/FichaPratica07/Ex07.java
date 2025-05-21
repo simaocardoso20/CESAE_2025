@@ -6,31 +6,38 @@ import java.util.Scanner;
 
 public class Ex07 {
 
-    public static void imprimirFicheiro(String caminho) throws FileNotFoundException {
+    public static int contarLinhas(String caminho) throws FileNotFoundException {
 
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
 
-        int numLinhas = 0;
-        int numPalavras = 0;
+        int contagemLinhas = 0;
+
+        while (sc.hasNextLine()) {
+            sc.nextLine();
+            contagemLinhas++;
+        }
+
+        return contagemLinhas;
+
+    }
+
+    public static int contarPalavras(String caminho) throws FileNotFoundException {
+
+        File ficheiro = new File(caminho);
+        Scanner sc = new Scanner(ficheiro);
+
+        int contagemPalavras = 0;
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            numLinhas += sc.nextInt();
+            String[] linhaSeparada = linha.split(" ");
 
-            String[] palavras = linha.trim().split("\\s+");
-
+            contagemPalavras += linhaSeparada.length;
         }
+
+        return contagemPalavras;
+
     }
-}
-
-    System.out.println("Número de linhas:" + numLinhas);
-    System.out.println("Número de palavras:" + numPalavras);
-
-
-    public static void main(String[] args) throws FileNotFoundException {
-
-        imprimirFicheiro("Ficheiros/exercicio_07.txt");
-}
 
 }
