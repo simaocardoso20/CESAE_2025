@@ -1,2 +1,4 @@
-package EX_09;public class Main {
+package EX_09;
+
+public class Main {
 }
