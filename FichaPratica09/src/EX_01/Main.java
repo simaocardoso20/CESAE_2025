@@ -1,7 +1,6 @@
 package EX_01;
 
 public class Main {
-
     public static void main(String[] args) {
         Carro fiat = new Carro("Fiat","500","Rosa",1960,100,1000,TipoCombustivel.GASOLINA,20);
         Carro ferrari = new Carro("Ferrari","Sf90","Vermelho",2022,800,5000,TipoCombustivel.GASOLINA,25);
@@ -14,9 +13,5 @@ public class Main {
         Carro vencedorFinal = vencedor1.corrida(vencedor2);
 
         vencedorFinal.exibirDetalhes();
-
-        double distanciaKm = 65;
-        double consumoFinal = vencedorFinal.calcularConsumo(65);
-        System.out.println("O consumo médio é: " + consumoFinal);
     }
 }

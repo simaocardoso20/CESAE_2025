@@ -1,7 +1,6 @@
 package EX_01;
 
 public class Carro {
-
     private String marca;
     private String modelo;
     private String cor;
@@ -22,10 +21,10 @@ public class Carro {
         this.consumoL100Km = consumoL100Km;
     }
 
-    // Retornar o nº de anos que o carro tem. 2025- Ano de Fabrico
     public int getIdade() {
         return 2025 - this.anoFabrico;
     }
+
     public void ligar() {
 
         if (this.getIdade() > 30) { // Carro com mais de 30 anos
@@ -49,67 +48,57 @@ public class Carro {
             }
 
         }
+
     }
 
-        public Carro corrida(Carro adversario) {
+    public Carro corrida(Carro adversario) {
 
-            if (this.potenciaCv > adversario.potenciaCv) {
-                // Ganha o meu carro por cv
-                return this;
+        if (this.potenciaCv > adversario.potenciaCv) {
+            // Ganha o meu carro por cv
+            return this;
+        } else {
+
+            if (this.potenciaCv < adversario.potenciaCv) {
+                // Ganha o adversario por cv
+                return adversario;
             } else {
+                // Empate de cv
 
-                if (this.potenciaCv < adversario.potenciaCv) {
-                    // Ganha o adversario por cv
-                    return adversario;
+                if (this.cc > adversario.cc) {
+                    // Ganha o meu carro por cc
+                    return this;
                 } else {
-                    // Empate de cv
 
-                    if (this.cc > adversario.cc) {
-                        // Ganha o meu carro por cc
-                        return this;
+                    if (this.cc < adversario.cc) {
+                        // Ganha o adversario por cc
+                        return adversario;
                     } else {
+                        // Empate de cc
 
-                        if (this.cc < adversario.cc) {
-                            // Ganha o adversario por cc
-                            return adversario;
+                        if (this.getIdade() < adversario.getIdade()) {
+                            // Ganha o meu carro por idade
+                            return this;
                         } else {
-                            // Empate de cc
 
-                            if (this.getIdade() < adversario.getIdade()) {
-                                // Ganha o meu carro por idade
-                                return this;
+                            if (this.getIdade() > adversario.getIdade()) {
+                                // Ganha o adversario por idade
+                                return adversario;
                             } else {
-
-                                if (this.getIdade() > adversario.getIdade()) {
-                                    // Ganha o adversario por idade
-                                    return adversario;
-                                } else {
-                                    // Empate
-                                    return null;
-                                }
-
+                                // Empate
+                                return null;
                             }
-                        }
 
+                        }
                     }
 
                 }
 
             }
-        }
 
-        public double calcularConsumo(double distanciaKm) {
-            return (this.consumoL100Km / 100) * distanciaKm;
-
-        }
-        public void exibirDetalhes() {
-            System.out.println(this.marca + " " + this.modelo + " | " + this.anoFabrico + " | " + this.cor);
         }
     }
 
-
-
-
-
-
-
+    public void exibirDetalhes() {
+        System.out.println(this.marca + " " + this.modelo + " | " + this.anoFabrico + " | " + this.cor);
+    }
+}
