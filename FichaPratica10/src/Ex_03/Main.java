@@ -1,38 +1,47 @@
-package Ex03;
-
-import java.util.ArrayList;
+package Ex_03;
 
 public class Main {
     public static void main(String[] args) {
 
+        Peixe sardinha = new Peixe("Sardinha",75,12);
+        Peixe bacalhau = new Peixe("Bacalhau",75,22.5);
+        Peixe robalo = new Peixe("Robalo",20,25);
+        Peixe peixeEspada = new Peixe("Peixe Espada",50,35);
 
-        // Criar o barco de pesca
-        BarcoPesca barco = new BarcoPesca("Maré Alta", "Azul", "2015", 5, 500.0, Marca.Quicksilver);
+        Marisco lagosta = new Marisco("Lagosta",10,90);
+        Marisco ameijoa = new Marisco("Ameijoa",25,65);
 
-        // Exibir detalhes do barco
-        barco.exibirDetalhes();
+        // Criar o barco - sem carga
+        BarcoPesca marisol = new BarcoPesca("Marisol","Azul e Branco",1975,4,200,MarcaBarco.BENTZ);
+        marisol.exibirDetalhes();
 
-        // Criar alguns peixes e mariscos
-        Peixe peixe1 = new Peixe("Sardinha", 10.0, 5.5);
-        Peixe peixe2 = new Peixe("Atum", 50.0, 12.0);
-        Marisco marisco1 = new Marisco("Camarão", 20.0, 18.0);
-        Marisco marisco2 = new Marisco("Lagosta", 30.0, 25.0);
 
-        // Pescar peixes e mariscos
-        barco.pescarPeixe(peixe1);
-        barco.pescarPeixe(peixe2);
-        barco.pescarMarisco(marisco1);
-        barco.pescarMarisco(marisco2);
+        // Pescar 2 peixes
+        marisol.pescarPeixe(sardinha);
+        marisol.pescarPeixe(bacalhau);
 
-        // Exibir tudo o que foi pescado
-        barco.exibirPeixesPescados();
-        barco.exibirMariscosPescados();
+        marisol.exibirDetalhes();
 
-        // Mostrar carga atual e total de venda
-        System.out.println("Carga atual: " + barco.calcularCargaAtual() + " kg");
-        System.out.println("Total de venda do pescado: €" + barco.calcularTotal());
 
-        // Mostrar salário por tripulante
-        System.out.println("Salário por tripulante: €" + barco.salarioTripulacao());
+        // Pescar 2 mariscos
+        marisol.pescarMarisco(lagosta);
+        marisol.pescarMarisco(ameijoa);
+
+        marisol.exibirDetalhes();
+
+
+        // Largar as sardinhas
+        marisol.largarPeixe(sardinha);
+
+        marisol.exibirDetalhes();
+
+
+        // Pescar mais alguma coisa
+        marisol.pescarPeixe(robalo);
+        marisol.pescarPeixe(peixeEspada);
+
+        marisol.exibirDetalhes();
+
+
     }
 }
