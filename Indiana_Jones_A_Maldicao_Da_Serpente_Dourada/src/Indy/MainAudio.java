@@ -1,3 +1,5 @@
+package Indy;
+
 import static java.lang.Thread.sleep;
 
 public class MainAudio {

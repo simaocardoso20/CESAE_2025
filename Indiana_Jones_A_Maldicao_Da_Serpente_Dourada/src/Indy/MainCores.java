@@ -1,3 +1,5 @@
+package Indy;
+
 public class MainCores {
     public static void main(String[] args) {
 

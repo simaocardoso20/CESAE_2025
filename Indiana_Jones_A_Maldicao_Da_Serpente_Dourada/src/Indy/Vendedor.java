@@ -1,5 +1,7 @@
 package Indy;
 
+import java.util.ArrayList;
+
 public class Vendedor {
 
         protected ArrayList<ItemHeroi> loja;

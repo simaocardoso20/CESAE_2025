@@ -1,5 +1,7 @@
 package Indy;
 
+import java.util.ArrayList;
+
 public abstract class ItemHeroi {
 
     protected String nome;
@@ -20,9 +22,12 @@ public abstract class ItemHeroi {
         }
 
         public abstract boolean podeUsar(Heroi heroi);
+
         public abstract void usar(Heroi heroi);
 
         public abstract String getDescricao();
-    }
+
+        // mostrarDetalhes
+}
 
 

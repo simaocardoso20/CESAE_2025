@@ -2,11 +2,15 @@ package Indy;
 
 public abstract class Consumivel extends ItemHeroi{
 
-    private int cura;
+    protected int cura;
 
     public Consumivel(String nome, int precoMoedasOuro, int cura) {
         super(nome, precoMoedasOuro);
         this.cura = cura;
+    }
+
+    public int getCura() {
+        return cura;
     }
 
     @Override
@@ -19,5 +23,4 @@ public abstract class Consumivel extends ItemHeroi{
         heroi.curar(cura);
         System.out.println(heroi.getNome() + " usou " + nome + " e recuperou " + cura + " de vida.");
     }
-}
 }

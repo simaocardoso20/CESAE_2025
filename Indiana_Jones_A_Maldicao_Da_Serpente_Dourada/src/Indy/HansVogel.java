@@ -2,8 +2,8 @@ package Indy;
 
 public class HansVogel extends Heroi{
 
-    public HansVogel(String nome, int vida, int forca, int nivel, int ouro) {
-        super(nome, vida, forca, nivel, ouro);
+    public HansVogel(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int ouro) {
+        super(nome, vidaMax, vidaAtual, forca, nivel, ouro);
     }
 
     @Override
@@ -17,5 +17,4 @@ public class HansVogel extends Heroi{
             this.receberDano(inimigo.getForca());
         }
     }
-}
 }

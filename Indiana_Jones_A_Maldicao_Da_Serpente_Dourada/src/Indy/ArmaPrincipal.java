@@ -1,15 +1,17 @@
 package Indy;
 
-public class ArmaPrincipal extends ItemHeroi{
+public class ArmaPrincipal extends ItemHeroi {
 
     private int ataque;
-    private int AtaqueEspecial;
+    private int ataqueEspecial;
+    private int dano;
     private String tipoPermitido;
 
-    public ArmaPrincipal(String nome, int precoMoedasOuro, int ataque, int ataqueEspecial, String tipoPermitido) {
-        super(nome, precoMoedasOuro);
+    public ArmaPrincipal(String nome, int preco, int ataque, int ataqueEspecial, int dano, String tipoPermitido) {
+        super(nome, preco);
         this.ataque = ataque;
-        AtaqueEspecial = ataqueEspecial;
+        this.ataqueEspecial = ataqueEspecial;
+        this.dano = dano;
         this.tipoPermitido = tipoPermitido;
     }
 
@@ -21,13 +23,26 @@ public class ArmaPrincipal extends ItemHeroi{
         return ataqueEspecial;
     }
 
+    public int getDano() {
+        return dano;
+    }
+
+    @Override
     public boolean podeUsar(Heroi heroi) {
         return tipoPermitido.equals("Todos") || heroi.getClass().getSimpleName().equals(tipoPermitido);
     }
 
+    @Override
     public void usar(Heroi heroi) {
         heroi.equiparArma(this);
         System.out.println(heroi.getNome() + " equipou " + getNome() + "!");
     }
+
+    @Override
+    public String getDescricao() {
+        return nome + " - Ataque: " + ataque + ", Especial: " + ataqueEspecial + ", Dano: " + dano;
+    }
 }
+
+
 

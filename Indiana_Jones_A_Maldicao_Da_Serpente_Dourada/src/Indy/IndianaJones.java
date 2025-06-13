@@ -2,8 +2,8 @@ package Indy;
 
 public class IndianaJones extends Heroi{
 
-    public IndianaJones(String nome, int vida, int forca, int nivel, int ouro) {
-        super(nome, vida, forca, nivel, ouro);
+    public IndianaJones(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int ouro) {
+        super(nome, vidaMax, vidaAtual, forca, nivel, ouro);
     }
 
     @Override
@@ -19,4 +19,3 @@ public class IndianaJones extends Heroi{
     }
 }
 
-}

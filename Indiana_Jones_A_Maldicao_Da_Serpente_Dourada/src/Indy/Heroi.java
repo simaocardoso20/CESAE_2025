@@ -7,7 +7,7 @@ public abstract class Heroi extends Entidade{
     protected int nivel;
     protected int ouro;
     protected ArmaPrincipal armaPrincipal;
-    protected ArrayList<Consumivel>inventario;
+    protected ArrayList<ItemHeroi> inventario;
 
 
     public Heroi(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int ouro) {
@@ -15,10 +15,10 @@ public abstract class Heroi extends Entidade{
         this.nivel = nivel;
         this.ouro = ouro;
         this.armaPrincipal = null;
-        this.inventario = new ArrayList<Consumivel>;
+        this.inventario = new ArrayList<ItemHeroi>();
     }
 
-    public abstract void equiparArma(ArmaPrincipal arma) {
+    public void equiparArma(ArmaPrincipal arma) {
         this.armaPrincipal = arma;
         System.out.println(nome + " equipou a arma: " + arma.getNome());
     }
@@ -27,7 +27,15 @@ public abstract class Heroi extends Entidade{
         return armaPrincipal != null ? forca + armaPrincipal.getDano() : forca;
     }
 
-    public void atacar(NPC inimigo);
+    public void curar(int quantidade) {
+        vidaAtual += quantidade;
+        if (vidaAtual > vidaMax) {
+            vidaAtual = vidaMax;
+        }
+        System.out.println(nome + " foi curado em " + quantidade + " pontos de vida.");
+    }
+
+    public abstract void atacar(NPC inimigo);
 
     public void mostrarDetalhes() {
         System.out.println("Nome: " + nome);
@@ -47,8 +55,8 @@ public abstract class Heroi extends Entidade{
         this.ouro -= quantidade;
     }
 
-    public void equiparArma(ArmaPrincipal novaArma) {
-        this.armaPrincipal = novaArma;
     }
-}
+
+    //metodo usarPocao
+
 

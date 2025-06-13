@@ -13,4 +13,24 @@ public abstract class Entidade {
         this.vidaAtual = vidaAtual;
         this.forca = forca;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public void receberDano(int dano) {
+        vidaAtual -= dano;
+        if (vidaAtual < 0) vidaAtual = 0;
+        System.out.println(nome + " recebeu " + dano + " de dano. Vida atual: " + vidaAtual);
+    }
+
+    public boolean estaVivo() {
+        return vidaAtual > 0;
+    }
+
+    //mostrarDetalhes()
 }
