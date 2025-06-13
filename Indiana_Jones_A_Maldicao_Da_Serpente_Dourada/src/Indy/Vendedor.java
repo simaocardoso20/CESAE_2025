@@ -1,6 +1,9 @@
 package Indy;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
 
 public class Vendedor {
 
@@ -44,7 +47,7 @@ public class Vendedor {
 
                 if (escolha == limite + 1) {
                     System.out.println("Saiu da loja.");
-                    comprando = false;
+                    comprar = false;
                 } else if (escolha >= 1 && escolha <= limite) {
                     ItemHeroi item = copia.get(escolha - 1);
 

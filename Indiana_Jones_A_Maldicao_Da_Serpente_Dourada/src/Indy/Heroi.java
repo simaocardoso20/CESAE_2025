@@ -18,6 +18,18 @@ public abstract class Heroi extends Entidade{
         this.inventario = new ArrayList<ItemHeroi>();
     }
 
+    public int getNivel() {
+        return nivel;
+    }
+
+    public int getOuro() {
+        return ouro;
+    }
+
+    public void setOuro(int ouro) {
+        this.ouro = ouro;
+    }
+
     public void equiparArma(ArmaPrincipal arma) {
         this.armaPrincipal = arma;
         System.out.println(nome + " equipou a arma: " + arma.getNome());
@@ -35,16 +47,21 @@ public abstract class Heroi extends Entidade{
         System.out.println(nome + " foi curado em " + quantidade + " pontos de vida.");
     }
 
+    public void aumentarForca(int quantidade) {
+        this.forca += quantidade;
+    }
+
     public abstract void atacar(NPC inimigo);
 
-    public void mostrarDetalhes() {
+    public void mostrarStatus() {
+        System.out.println("=== STATUS DO HERÓI ===");
         System.out.println("Nome: " + nome);
-        System.out.println("Vida Máxima: " + vidaMax);
-        System.out.println("Vida Atual: " + vidaAtual);
-        System.out.println("Força Base: " + forca);
+        System.out.println("Vida: " + vidaAtual + "/" + vidaMax);
+        System.out.println("Força: " + forca);
         System.out.println("Nível: " + nivel);
         System.out.println("Ouro: " + ouro);
         System.out.println("Arma: " + (armaPrincipal != null ? armaPrincipal.getNome() + " (+" + armaPrincipal.getDano() + ")" : "Nenhuma"));
+        System.out.println("========================");
     }
 
     public void adicionarItemAoInventario(ItemHeroi item) {

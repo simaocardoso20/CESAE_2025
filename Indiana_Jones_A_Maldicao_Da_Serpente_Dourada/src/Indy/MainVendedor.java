@@ -2,13 +2,11 @@ package Indy;
 
 public class MainVendedor {
 
-    Heroi heroi = new IndianaJones("Indiana Jones", 100, 10, 1, 50, null); // 50 de ouro para testar compras
-
     public static void carregarItensLoja(Vendedor vendedor) {
         // Poções (usáveis por todos os heróis)
-        vendedor.adicionarItem(new PocaoVida("Poção de Vida 25", 10, 25)); // universal
-        vendedor.adicionarItem(new PocaoVida("Poção de Vida 50", 20, 50));
-        vendedor.adicionarItem(new PocaoForca("Poção de Força Temporária", 15, 3));
+        vendedor.adicionarItem(new Pocao("Poção de Vida 25", 10, 25, 0));
+        vendedor.adicionarItem(new Pocao("Poção de Vida 50", 20, 50, 0));
+        vendedor.adicionarItem(new Pocao("Poção de Força 25", 15, 0, 25));
 
         // Armas para IndianaJones
         vendedor.adicionarItem(new ArmaPrincipal("Espada de Bronze", 25, 8, "Cavaleiro"));
@@ -26,7 +24,7 @@ public class MainVendedor {
         vendedor.adicionarItem(new ArmaPrincipal("Bestinha Rápida", 32, 11, "Arqueiro"));
 
         // Itens variados
-        vendedor.adicionarItem(new PocaoVida("Poção de Vida Menor", 5, 10)); // universal
-        vendedor.adicionarItem(new PocaoForca("Elixir de Força", 18, 5));
+        //vendedor.adicionarItem(new Pocao("Poção de Vida Menor", 5, 10)); // universal
+        //vendedor.adicionarItem(new Pocao("Elixir de Força", 18, 5));
     }
 }

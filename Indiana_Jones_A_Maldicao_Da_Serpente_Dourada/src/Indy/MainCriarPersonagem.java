@@ -5,20 +5,24 @@ import java.util.Scanner;
 public class MainCriarPersonagem {
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
         boolean jogarNovamente = true;
-
-        System.out.println("==== BEM-VINDO AO JOGO ====");
-        System.out.println("INDIANA JONES: 🐍 A Maldição da Serpente Dourada 🐍\n");
+        Heroi heroi = null; // Declarar a variável heroi aqui
 
         while (jogarNovamente) {
-            Heroi heroi = Jogo.criarPersonagem(); // método que já tens
-            Jogo.introducaoHistoria();            // método que imprime a história geral
+            // Iniciar o jogo
+            Jogo.iniciar();
 
-            Jogo.labirintoMortal(heroi);          // aqui começa a aventura
+            // Criar personagem
+            heroi = Jogo.criarPersonagem();
 
-            // Perguntar ao jogador o que quer fazer após o fim
+            // Mostrar introdução da história
+            Jogo.introducaoHistoria();
+
+            // Aqui você pode adicionar mais lógica do jogo
+            // Por exemplo: Jogo.labirintoMortal(heroi);
+
+            // Perguntar ao jogador o que quer fazer
             System.out.println("\n=== JOGO TERMINADO ===");
             System.out.println("1 - Jogar novamente com a mesma personagem");
             System.out.println("2 - Criar nova personagem");
@@ -31,7 +35,8 @@ public class MainCriarPersonagem {
             }
 
             if (escolha == 1) {
-                Jogo.labirintoMortal(heroi); // repete a aventura
+                // Jogo.labirintoMortal(heroi); // repete a aventura
+                System.out.println("Repetindo aventura com " + heroi.getNome());
             } else if (escolha == 2) {
                 continue; // volta ao topo do ciclo
             } else {

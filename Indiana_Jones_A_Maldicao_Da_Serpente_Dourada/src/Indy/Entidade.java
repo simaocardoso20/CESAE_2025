@@ -18,6 +18,18 @@ public abstract class Entidade {
         return nome;
     }
 
+    public int getVidaMax() {
+        return vidaMax;
+    }
+
+    public int getVidaAtual() {
+        return vidaAtual;
+    }
+
+    public void setVidaAtual(int vidaAtual) {
+        this.vidaAtual = vidaAtual;
+    }
+
     public int getForca() {
         return forca;
     }
