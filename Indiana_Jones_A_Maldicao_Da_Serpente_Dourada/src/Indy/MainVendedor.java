@@ -9,22 +9,22 @@ public class MainVendedor {
         vendedor.adicionarItem(new Pocao("Poção de Força 25", 15, 0, 25));
 
         // Armas para IndianaJones
-        vendedor.adicionarItem(new ArmaPrincipal("Espada de Bronze", 25, 8, "Cavaleiro"));
-        vendedor.adicionarItem(new ArmaPrincipal("Chicote de Couro", 20, 6, "Cavaleiro"));
-        vendedor.adicionarItem(new ArmaPrincipal("Machado Pesado", 35, 12, "Cavaleiro"));
+        vendedor.adicionarItem(new ArmaPrincipal("Machado pesado", 35, 20, 30,25,"IndianaJones"));
+        vendedor.adicionarItem(new ArmaPrincipal("Espada de bronze", 25, 15,  25, 20,"IndianaJones"));
+        vendedor.adicionarItem(new ArmaPrincipal("Chicote de couro", 20, 10, 20,15,"IndianaJones"));
 
         // Armas para HansVogel
-        vendedor.adicionarItem(new ArmaPrincipal("Cajado do Vento", 22, 7, "Feiticeiro"));
-        vendedor.adicionarItem(new ArmaPrincipal("Orbe Arcano", 30, 10, "Feiticeiro"));
-        vendedor.adicionarItem(new ArmaPrincipal("Tomo da Destruição", 40, 14, "Feiticeiro"));
+        vendedor.adicionarItem(new ArmaPrincipal("Pistola semiautomática", 35, 20, 30,25,"HansVogel"));
+        vendedor.adicionarItem(new ArmaPrincipal("Granada de Gás Oculto", 25, 15, 25,20,"HansVogel"));
+        vendedor.adicionarItem(new ArmaPrincipal("Bastão com lâmina escondida", 20, 10, 20,15,"HansVogel"));
 
         // Armas para SophieValen
-        vendedor.adicionarItem(new ArmaPrincipal("Arco Curto", 18, 5, "Arqueiro"));
-        vendedor.adicionarItem(new ArmaPrincipal("Arco Longo", 25, 9, "Arqueiro"));
-        vendedor.adicionarItem(new ArmaPrincipal("Bestinha Rápida", 32, 11, "Arqueiro"));
+        vendedor.adicionarItem(new ArmaPrincipal("Pistola de bolso", 35, 20, 30,25,"SophieValen"));
+        vendedor.adicionarItem(new ArmaPrincipal("Faca afiada", 25, 15, 25,20,"SophieValen"));
+        vendedor.adicionarItem(new ArmaPrincipal("Alfinete com veneno", 20, 10, 20,15,"SophieValen"));
 
         // Itens variados
-        //vendedor.adicionarItem(new Pocao("Poção de Vida Menor", 5, 10)); // universal
-        //vendedor.adicionarItem(new Pocao("Elixir de Força", 18, 5));
+        vendedor.adicionarItem(new ArmaPrincipal("Tocha", 15, 10, 15, 10,"Todos"));
+        vendedor.adicionarItem(new ArmaPrincipal("Corda com Gancho", 15, 10, 15, 10,"Todos"));
     }
 }

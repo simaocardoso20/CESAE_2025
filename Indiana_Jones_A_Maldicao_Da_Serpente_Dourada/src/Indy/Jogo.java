@@ -7,7 +7,7 @@ public class Jogo {
     public static void iniciar() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("==== BEM-VINDO AO JOGO ====");
+        System.out.println("       \n======== BEM-VINDO AO JOGO ========\n");
         System.out.println("INDIANA JONES: 🐍 A Maldição da Serpente Dourada 🐍\n");
         System.out.print("Digite o teu nome de utilizador: ");
         String username = scanner.nextLine();
@@ -16,26 +16,26 @@ public class Jogo {
 
     public static Heroi criarPersonagem() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("=== CRIAÇÃO DA PERSONAGEM ===");
+        System.out.println("=== CRIAÇÃO DA PERSONAGEM ===\n");
 
-        System.out.println("Escolha o teu herói:");
-        System.out.println("1 - Indiana Jones – Arqueólogo Aventureiro");
+        System.out.println("Escolhe o teu herói:");
+        System.out.println("1 - Indiana Jones - Arqueólogo Aventureiro");
         System.out.println("2 - General Hans Vogel - Vilão Nazi");
-        System.out.println("3 - Sophie Valen – Espiã Misteriosa");
+        System.out.println("3 - Sophie Valen – Espiã Misteriosa\n");
 
         int escolhaTipo = 0;
         while (escolhaTipo < 1 || escolhaTipo > 3) {
-            System.out.print("Digite 1, 2 ou 3: ");
+            System.out.print("Digite 1, 2 ou 3: \n");
             escolhaTipo = scanner.nextInt();
         }
 
-        System.out.println("Escolha a dificuldade:");
+        System.out.println("Escolhe a dificuldade:");
         System.out.println("1 - Fácil (300 pontos, 20 ouro)");
-        System.out.println("2 - Difícil (220 pontos, 15 ouro)");
+        System.out.println("2 - Difícil (220 pontos, 15 ouro)\n");
 
         int dificuldade = 0;
         while (dificuldade != 1 && dificuldade != 2) {
-            System.out.print("Digite 1 ou 2: ");
+            System.out.print("Digite 1 ou 2: \n");
             dificuldade = scanner.nextInt();
         }
 
@@ -56,7 +56,7 @@ public class Jogo {
 
         // Distribuição de pontos
         while (!distribuicaoValida) {
-            System.out.println("Distribua seus " + pontosTotais + " pontos:");
+            System.out.println("Distribui os teus " + pontosTotais + " pontos:\n");
             System.out.print("- Pontos para VIDA (1 ponto cada): ");
             vida = scanner.nextInt();
             System.out.print("- Pontos para FORÇA (1 ponto de força custa 5 pontos): ");
