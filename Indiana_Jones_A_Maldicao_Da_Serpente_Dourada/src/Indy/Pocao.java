@@ -18,7 +18,7 @@ public class Pocao extends Consumivel {
             System.out.println(heroi.getNome() + " recuperou " + vidaCurar + " de vida.");
         }
         if (aumentoForca > 0) {
-            heroi.aumentarForca(aumentoForca);
+            heroi.ganharForca(aumentoForca);
             System.out.println(heroi.getNome() + " aumentou a força em +" + aumentoForca + ".");
         }
     }

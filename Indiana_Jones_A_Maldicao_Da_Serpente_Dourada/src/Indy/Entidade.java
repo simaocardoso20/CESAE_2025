@@ -44,5 +44,4 @@ public abstract class Entidade {
         return vidaAtual > 0;
     }
 
-    //mostrarDetalhes()
 }

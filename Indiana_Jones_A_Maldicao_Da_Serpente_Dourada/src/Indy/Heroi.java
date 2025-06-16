@@ -83,12 +83,6 @@ public abstract class Heroi extends Entidade {
         }
     }
 
-    public void ganharForca(int quantidade) {
-        if (quantidade > 0) {
-            this.forca += quantidade;
-        }
-    }
-
     public void subirNivel() {
         this.nivel++;
         this.vidaMax += 10;
@@ -113,4 +107,26 @@ public abstract class Heroi extends Entidade {
     }
 
     public abstract boolean atacar(NPC inimigo);
+
+
+    // Criei para testar ataques instantâneos mas retirei o metodo da jogabilidade
+    public void enfrentarNPC(NPC inimigo) {
+        System.out.println("Combate iniciado contra " + inimigo.getNome() + "!");
+
+        while (this.vidaAtual > 0 && inimigo.getVidaAtual() > 0) {
+            inimigo.receberDano(this.forca);
+
+            if (inimigo.getVidaAtual() > 0) {
+                this.receberDano(inimigo.getForca());
+            }
+        }
+
+        if (this.vidaAtual > 0) {
+            System.out.println("Você venceu " + inimigo.getNome() + "!");
+            recuperarVida(vidaMax);
+            ganharForca(10);
+        } else {
+            System.out.println("Você foi derrotado por " + inimigo.getNome() + ".");
+        }
+    }
 }

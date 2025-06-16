@@ -6,9 +6,9 @@ public class Jogo {
 
     // NPCs principais da história
     public static NPC macacoLider;
+    public static NPC guerreiroTribal;
     public static NPC serpenteUxmal;
     public static NPC espectroGuardiao;
-    public static NPC xukuru;
     public static NPC armadilhaViva;
     public static NPC bossFinal;
 
@@ -229,11 +229,11 @@ public class Jogo {
     }
 
     public static void inicializarNPCs() {
-        macacoLider = new NPC("Macaco Líder", 100, 100, 25, 50);
-        serpenteUxmal = new NPC("Serpente Gigante de Uxmal", 120, 120, 30, 70);
-        espectroGuardiao = new NPC("Espectro Guardião", 90, 90, 22, 40);
-        xukuru = new NPC("Xukuru, o Xamã", 110, 110, 20, 60);
-        armadilhaViva = new NPC("Armadilha Viva", 60, 60, 18, 15);
+        macacoLider = new NPC("Macaco Líder", 100, 100, 25, 30);
+        guerreiroTribal = new NPC("Guerreiro Tribal", 100, 100, 25, 30);
+        serpenteUxmal = new NPC("Serpente Gigante de Uxmal", 120, 120, 30, 30);
+        espectroGuardiao = new NPC("Espectro Guardião", 90, 90, 22, 30);
+        armadilhaViva = new NPC("Armadilha Viva", 60, 60, 18, 30);
         bossFinal = new NPC("Guardião da Serpente Dourada", 150, 150, 40, 100);
     }
 
@@ -255,8 +255,13 @@ public class Jogo {
                 System.out.println("\nEscolheste o Trilho dos Macacos e avanças cautelosamente...");
                 System.out.println("De repente, surge um macaco, parece ser o líder do bando e bloqueia o teu caminho!");
                 System.out.println("Boa sorte, estás por tua conta!");
-                heroi.atacar(macacoLider);
-                if (heroi.estaVivo()) {
+
+                // Luta com o macaco lider
+                boolean venceu = heroi.atacar(Jogo.macacoLider);
+
+
+                // Luta com o macaco lider
+                if (venceu) {
                     System.out.println("Grande vitória! Derrotaste o Macaco Líder, um feito que mais nenhum humano tinha conseguido.");
                     System.out.println("Como recompensa e demonstração de respeito, o macaco deu-te o mapa que procuravas!");
                 } else {
@@ -276,32 +281,7 @@ public class Jogo {
             default:
                 System.out.println("Escolha inválida. A missão falhou por indecisão.");
         }
-
-        public void enfrentarMacaco() {
-            macacoLider macaco = new macacoLider(); // cria o inimigo
-            boolean venceu = false;
-
-            while (this.vida > 0 && macaco.getVida() > 0) {
-                macaco.receberDano(this.forca);
-
-                if (macaco.getVida() > 0) {
-                    this.receberDano(macaco.getForca());
-                }
-            }
-
-            if (this.vida > 0) {
-                venceu = true;
-            }
-
-            if (venceu) {
-                System.out.println("Você venceu o macaco!");
-                // por exemplo:
-                recuperarVida(vidaMax);
-                ganharForca(10);
-            } else {
-                System.out.println("Você foi derrotado pelo macaco.");
-            }
-        }
+    }
 
     public static void missaoTemplo(Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
@@ -341,53 +321,52 @@ public class Jogo {
         }
     }
 
-        public static void desafioChaveCristal(Heroi heroi) {
-            Scanner scanner = new Scanner(System.in);
-            String respostaCorreta = "livro";
-            int tentativas = 0;
-            boolean acertou = false;
+    public static void desafioChaveCristal(Heroi heroi) {
+        Scanner scanner = new Scanner(System.in);
+        String respostaCorreta = "livro";
+        int tentativas = 0;
+        boolean acertou = false;
 
-            System.out.println("\nApesar dos ferimentos, avanças para o centro do templo.");
-            System.out.println("Sobre um pedestal de pedra, envolta em luz azulada, repousa uma pequena — mas poderosa — **Chave de Cristal**!");
-            System.out.println("Ao esticares a mão para a agarrar, ouves uma voz antiga ecoar pelas paredes de pedra:");
-            System.out.println("\"Responde se fores digno. Uma única palavra é a chave. Se falhares... o templo decidirá teu destino.\"\n");
+        System.out.println("\nApesar dos ferimentos, avanças para o centro do templo.");
+        System.out.println("Sobre um pedestal de pedra, envolta em luz azulada, repousa uma pequena — mas poderosa — **Chave de Cristal**!");
+        System.out.println("Ao esticares a mão para a agarrar, ouves uma voz antiga ecoar pelas paredes de pedra:");
+        System.out.println("\"Responde se fores digno. Uma única palavra é a chave. Se falhares... o templo decidirá teu destino.\"\n");
 
-            System.out.println("🔐 Adivinha: \"Vivo entre páginas, mas não sou animal.\n"
-                   + "Revelo o antigo, o sagrado e o mortal.\n"
-                   + "Quem me decifra, ganha poder imortal.\n"
-                   + "O que é?");
+        System.out.println("🔐 Adivinha: \"Vivo entre páginas, mas não sou animal.\n"
+                + "Revelo o antigo, o sagrado e o mortal.\n"
+                + "Quem me decifra, ganha poder imortal.\n"
+                + "O que é?");
 
-            while (tentativas < 3 && !acertou) {
-                System.out.print("A tua resposta: ");
-                String resposta = scanner.nextLine().trim().toLowerCase();
+        while (tentativas < 3 && !acertou) {
+            System.out.print("A tua resposta: ");
+            String resposta = scanner.nextLine().trim().toLowerCase();
 
-                if (resposta.equals(respostaCorreta)) {
-                    acertou = true;
-                    System.out.println("\n✨ A luz azulada envolve-te — acertaste!");
-                    System.out.println("O templo reconhece a tua sabedoria... e concede-te acesso ao seu maior segredo.");
-                    System.out.println("A Chave de Cristal flutua até à tua mão. Foste digno!");
-                    System.out.println("A tua vida é restaurada e ganhas 10 pontos de força como recompensa pela tua inteligência.");
-                    heroi.recuperarVida(heroi.getVidaMax()); // restaura a vida
-                    heroi.ganharForca(10);
-                } else {
-                    tentativas++;
-                    heroi.perderVida(5);
-                    System.out.println("⚠️ Resposta errada! Perdes 5 pontos de vida. Tentativas restantes: " + (3 - tentativas));
-                }
+            if (resposta.equals(respostaCorreta)) {
+                acertou = true;
+                System.out.println("\n✨ A luz azulada envolve-te — acertaste!");
+                System.out.println("O templo reconhece a tua sabedoria... e concede-te acesso ao seu maior segredo.");
+                System.out.println("A Chave de Cristal flutua até à tua mão. Foste digno!");
+                System.out.println("A tua vida é restaurada e ganhas 10 pontos de força como recompensa pela tua inteligência.");
+                heroi.recuperarVida(heroi.getVidaMax()); // restaura a vida
+                heroi.ganharForca(10);
+            } else {
+                tentativas++;
+                heroi.perderVida(5);
+                System.out.println("⚠️ Resposta errada! Perdes 5 pontos de vida. Tentativas restantes: " + (3 - tentativas));
             }
+        }
 
-            if (!acertou) {
-                System.out.println("\n💥 Respondeste errado 3 vezes!");
-                System.out.println("Consegues agarrar a chave, mas o templo começa a desmoronar-se!");
-                heroi.perderVida(15);
-                System.out.println("🌪️ Corres por entre colunas a cair, pedras e poeira... e consegues escapar do templo com vida.");
-                System.out.println("Mas sofres ferimentos graves e perdes mais 15 pontos de vida.");
-                System.out.println("Com a chave nas mãos, respiras fundo. O verdadeiro desafio ainda está por vir...");
-            }
+        if (!acertou) {
+            System.out.println("\n💥 Respondeste errado 3 vezes!");
+            System.out.println("Consegues agarrar a chave, mas o templo começa a desmoronar-se!");
+            heroi.perderVida(15);
+            System.out.println("🌪️ Corres por entre colunas a cair, pedras e poeira... e consegues escapar do templo com vida.");
+            System.out.println("Mas sofres ferimentos graves e perdes mais 15 pontos de vida.");
+            System.out.println("Com a chave nas mãos, respiras fundo. O verdadeiro desafio ainda está por vir...");
         }
     }
 
-    public void missaoAldeia(Heroi heroi) {
+    public static void missaoAldeia(Heroi heroi) {
         System.out.println("\n=== MISSÃO 2 - O GUERREIRO DE SANGUE XUKURU ===\n");
 
         System.out.println("Seguindo as pegadas deixadas na lama, atravessas a vegetação densa até chegares a uma clareira secreta.");
@@ -396,35 +375,22 @@ public class Jogo {
 
         System.out.println("\nSegundo os rumores, o explorador que encontrou a Serpente Dourada refugiou-se aqui, escondido do mundo...");
         System.out.println("Mas antes que possas falar com alguém, um guerreiro imponente surge no centro da aldeia.");
-        System.out.println("Pintado com sangue de jaguar e com uma lança de osso dourado, ele grita um desafio ancestral!");
+        System.out.println("Pintado com sangue de jaguar e com uma lança de osso dourado, ele grita um desafio ancestral:");
 
         System.out.println("“Para falares com o explorador, primeiro deves enfrentar XUKURU — o protetor do espírito da selva!”");
+        System.out.println("\nÀ tua frente surge um guerreiro tribal imponente, com pinturas de guerra e uma lança reluzente.");
+        System.out.println("Antes que possas avançar, tens de o derrotar!");
 
+
+        heroi.enfrentarNPC(guerreiroTribal);
+
+        if (heroi.estaVivo()) {
+            System.out.println("\n🏆 Vitória! O guerreiro cai de joelhos e os anciãos da aldeia aproximam-se.");
+            System.out.println("🚪 És conduzido até uma cabana de madeira onde se esconde o explorador que procuras...");
+
+        } else {
+            System.out.println("\n💀 O guerreiro tribal foi demasiado forte. A tua aventura termina aqui.");
+
+        }
+    }
 }
-        public static void enfrentarGuerreiroTribal(Heroi heroi) {
-            System.out.println("\nÀ tua frente surge um guerreiro tribal imponente, com pinturas de guerra e uma lança reluzente.");
-            System.out.println("Antes que possas avançar, tens de o derrotar!");
-
-            // Criar o guerreiro tribal como um NPC
-            NPC guerreiroTribal = new NPC("Guerreiro Tribal", 50, 50, 12, 30); // nome, vidaMax, vidaAtual, forca, ouro
-
-            boolean venceu = heroi.atacar(guerreiroTribal);
-
-            if (venceu) {
-                System.out.println("\n🏆 Vitória! O guerreiro cai de joelhos e os anciãos da aldeia aproximam-se.");
-                System.out.println("🚪 És conduzido até uma cabana de madeira onde se esconde o explorador que procuras...");
-
-            } else {
-                System.out.println("\n💀 O guerreiro tribal foi demasiado forte. A tua aventura termina aqui.");
-
-            }
-        }
-
-            // Resultado do combate
-            if (heroi.estaVivo()) {
-                System.out.println("\nConseguiste derrotar o guerreiro da tribo!");
-                System.out.println("Os aldeões olham-te com respeito. Agora podes procurar o explorador escondido.");
-            } else {
-                System.out.println("\nFoste derrotado pelo guerreiro tribal... A tua aventura termina aqui.");
-            }
-        }

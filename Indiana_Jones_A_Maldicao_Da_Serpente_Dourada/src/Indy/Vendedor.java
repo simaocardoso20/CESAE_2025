@@ -35,13 +35,13 @@ public class Vendedor {
         Scanner scanner = new Scanner(System.in);
         boolean comprar = true;
 
-        ArrayList<ItemHeroi> copia = new ArrayList<>(loja); // Copia feita uma vez
+        ArrayList<ItemHeroi> copia = new ArrayList<>(loja); // Cópia feita uma vez
         Collections.shuffle(copia); // Baralhar só uma vez
 
-        while (comprar) {
-            // mostrar a mesma lista sempre
-            imprimirLoja(copia);
+        // mostrar a mesma lista sempre
+        imprimirLoja(copia);
 
+        while (comprar) {
             System.out.print("\nEscolhe um item para comprar (ou sair): ");
             int escolha = scanner.nextInt();
 

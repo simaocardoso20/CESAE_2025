@@ -20,24 +20,16 @@ public class MainCriarPersonagem {
             Jogo.introducaoHistoria();
 
             // Mostrar roteiro do jogo personalizado: Missão 1
-            Jogo.mostrarRoteiroPersonalizado(heroi);
+            Jogo.mostrarRoteiroPersonalizado(heroi); // Inclui luta com o macaco lider
 
             // Aceder à loja (vendedor e itens)
             Jogo.abrirLoja(heroi);
 
-            // Iniciar uma luta
-            heroi.atacar(Jogo.macacoLider);
-
-            // Missão 2
+            // Missão 2 (Templo) ou alternativo
             Jogo.missaoTemplo(heroi);
-
-            // Missao 2 Alternativa
-            Jogo.missaoAldeia(heroi);
+            Jogo.missaoAldeia(heroi); // Inclui luta com o Guerreiro Tribal
 
             // Desafio chave cristal / Adivinha
-            Jogo.desafioChaveCristal(heroi);
-
-            // Após o switch (escolha) dentro de missaoTemplo
             Jogo.desafioChaveCristal(heroi);
 
 
