@@ -19,10 +19,31 @@ public class MainCriarPersonagem {
             // Mostrar introdução da história
             Jogo.introducaoHistoria();
 
-            // Aqui você pode adicionar mais lógica do jogo
-            // Por exemplo: Jogo.labirintoMortal(heroi);
+            // Mostrar roteiro do jogo personalizado: Missão 1
+            Jogo.mostrarRoteiroPersonalizado(heroi);
 
-            // Perguntar ao jogador o que quer fazer
+            // Aceder à loja (vendedor e itens)
+            Jogo.abrirLoja(heroi);
+
+            // Iniciar uma luta
+            heroi.atacar(Jogo.macacoLider);
+
+            // Missão 2
+            Jogo.missaoTemplo(heroi);
+
+            // Missao 2 Alternativa
+            Jogo.missaoAldeia(heroi);
+
+            // Desafio chave cristal / Adivinha
+            Jogo.desafioChaveCristal(heroi);
+
+            // Após o switch (escolha) dentro de missaoTemplo
+            Jogo.desafioChaveCristal(heroi);
+
+
+
+
+            // Game Over ou Fim do Jogo
             System.out.println("\n=== JOGO TERMINADO ===");
             System.out.println("1 - Jogar novamente com a mesma personagem");
             System.out.println("2 - Criar nova personagem");

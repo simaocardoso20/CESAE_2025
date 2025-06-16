@@ -40,7 +40,10 @@ public class ArmaPrincipal extends ItemHeroi {
 
     @Override
     public String getDescricao() {
-        return nome + " - Ataque: " + ataque + ", Especial: " + ataqueEspecial + ", Dano: " + dano;
+        String destinatarios = tipoPermitido.equals("Todos") ? "Para todos os heróis" : "Especial " + tipoPermitido;
+        System.out.println("------------------------------------------------------------------");
+        return getNome() + " - Ataque: " + ataque + ", Especial: " + ataqueEspecial + ", Dano: " + dano +
+                "\n \uD83D\uDCB0 Preço: " + getPrecoMoedasOuro() + " | " + destinatarios;
     }
 }
 

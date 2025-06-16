@@ -27,7 +27,6 @@ public abstract class ItemHeroi {
 
         public abstract String getDescricao();
 
-        // mostrarDetalhes
 }
 
 

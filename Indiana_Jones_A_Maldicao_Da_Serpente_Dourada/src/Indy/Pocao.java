@@ -1,6 +1,6 @@
 package Indy;
 
-public class Pocao extends Consumivel{
+public class Pocao extends Consumivel {
 
     private int vidaCurar;
     private int aumentoForca;
@@ -25,11 +25,13 @@ public class Pocao extends Consumivel{
 
     @Override
     public boolean podeUsar(Heroi heroi) {
-        return true; // todas as poções podem ser usadas por qualquer herói
+        return true;  // poções são para todos
     }
 
     @Override
     public String getDescricao() {
-        return getNome() + " (Vida +" + vidaCurar + ", Força +" + aumentoForca + ")";
+        System.out.println("------------------------------------------------------------------");
+        return getNome() + " - Vida +" + vidaCurar + ", Força +" + aumentoForca
+                + "\n \uD83D\uDCB0 Preço: " + getPrecoMoedasOuro() + " Moedas de ouro | Para todos os heróis";
     }
 }

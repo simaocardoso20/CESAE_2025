@@ -2,20 +2,21 @@ package Indy;
 
 import java.util.ArrayList;
 
-public abstract class Heroi extends Entidade{
+public abstract class Heroi extends Entidade {
 
     protected int nivel;
     protected int ouro;
+    protected boolean ataqueEspecialUsado;
     protected ArmaPrincipal armaPrincipal;
     protected ArrayList<ItemHeroi> inventario;
-
 
     public Heroi(String nome, int vidaMax, int vidaAtual, int forca, int nivel, int ouro) {
         super(nome, vidaMax, vidaAtual, forca);
         this.nivel = nivel;
         this.ouro = ouro;
         this.armaPrincipal = null;
-        this.inventario = new ArrayList<ItemHeroi>();
+        this.inventario = new ArrayList<>();
+        this.ataqueEspecialUsado = false;
     }
 
     public int getNivel() {
@@ -30,6 +31,14 @@ public abstract class Heroi extends Entidade{
         this.ouro = ouro;
     }
 
+    public void retirarOuro(int quantidade) {
+        this.ouro -= quantidade;
+    }
+
+    public void adicionarOuro(int quantidade) {
+        this.ouro += quantidade;
+    }
+
     public void equiparArma(ArmaPrincipal arma) {
         this.armaPrincipal = arma;
         System.out.println(nome + " equipou a arma: " + arma.getNome());
@@ -39,19 +48,52 @@ public abstract class Heroi extends Entidade{
         return armaPrincipal != null ? forca + armaPrincipal.getDano() : forca;
     }
 
+    public int getDanoNormal() {
+        return forca + (armaPrincipal != null ? armaPrincipal.getAtaque() : 0);
+    }
+
+    public int getDanoEspecial() {
+        return forca + (armaPrincipal != null ? armaPrincipal.getAtaqueEspecial() : 0);
+    }
+
+    public void perderVida(int quantidade) {
+        this.vidaAtual -= quantidade;
+        if (this.vidaAtual < 0) {
+            this.vidaAtual = 0;
+        }
+    }
+
     public void curar(int quantidade) {
         vidaAtual += quantidade;
-        if (vidaAtual > vidaMax) {
-            vidaAtual = vidaMax;
-        }
+        if (vidaAtual > vidaMax) vidaAtual = vidaMax;
         System.out.println(nome + " foi curado em " + quantidade + " pontos de vida.");
     }
 
-    public void aumentarForca(int quantidade) {
+    public void recuperarVida(int vidaNova) {
+        if (vidaNova > vidaMax) {
+            this.vida = vidaMax;
+        } else {
+            this.vida = vidaNova;
+        }
+    }
+
+    public void ganharForca(int quantidade) {
+        if (quantidade > 0) {
+            this.forca += quantidade;
+        }
+    }
+
+    public void ganharForca(int quantidade) {
         this.forca += quantidade;
     }
 
-    public abstract void atacar(NPC inimigo);
+    public void subirNivel() {
+        this.nivel++;
+        this.vidaMax += 10;
+        this.vidaAtual += 10;
+        this.forca += 1;
+        System.out.println("🔺 Subiste de nível! Agora és nível " + nivel);
+    }
 
     public void mostrarStatus() {
         System.out.println("=== STATUS DO HERÓI ===");
@@ -68,12 +110,5 @@ public abstract class Heroi extends Entidade{
         inventario.add(item);
     }
 
-    public void retirarOuro(int quantidade) {
-        this.ouro -= quantidade;
-    }
-
-    }
-
-    //metodo usarPocao
-
-
+    public abstract boolean atacar(NPC inimigo);
+}

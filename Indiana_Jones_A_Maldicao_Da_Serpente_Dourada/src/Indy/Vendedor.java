@@ -7,71 +7,75 @@ import java.util.Scanner;
 
 public class Vendedor {
 
-        protected ArrayList<ItemHeroi> loja;
+    protected ArrayList<ItemHeroi> loja;
 
-        public Vendedor() {
-            loja = new ArrayList<>();
+    public Vendedor() {
+        loja = new ArrayList<>();
+    }
+
+    public void adicionarItem(ItemHeroi item) {
+        loja.add(item);
+    }
+
+    // Mostrar os 10 itens aleatórios da loja (mas contém 14 items)
+    public void imprimirLoja(ArrayList<ItemHeroi> lista) {
+
+        System.out.println("\n*-*-*-*-*-*-*-*-*-*-*-*-* ITEMS À VENDA *-*-*-*-*-*-*-*-*-*-*-*-* \n");
+        int limite = Math.min(10, lista.size());
+        for (int i = 0; i < limite; i++) {
+            ItemHeroi item = lista.get(i);
+            System.out.println((i + 1) + ". " + item.getDescricao());
         }
+        System.out.println("------------------------------------------------------------------");
+        System.out.println((limite + 1) + ". Sair da loja");
+    }
 
-        public void adicionarItem(ItemHeroi item) {
-            loja.add(item);
-        }
+    // Vender um item ao herói, se possível
+    public void vender(Heroi heroi) {
+        Scanner scanner = new Scanner(System.in);
+        boolean comprar = true;
 
-        // Mostrar os 10 itens aleatórios da loja
-        public void imprimirLoja() {
-            System.out.println("\n=== Itens à venda ===");
-            ArrayList<ItemHeroi> copia = new ArrayList<>(loja);
-            Collections.shuffle(copia);
+        ArrayList<ItemHeroi> copia = new ArrayList<>(loja); // Copia feita uma vez
+        Collections.shuffle(copia); // Baralhar só uma vez
+
+        while (comprar) {
+            // mostrar a mesma lista sempre
+            imprimirLoja(copia);
+
+            System.out.print("\nEscolhe um item para comprar (ou sair): ");
+            int escolha = scanner.nextInt();
 
             int limite = Math.min(10, copia.size());
-            for (int i = 0; i < limite; i++) {
-                ItemHeroi item = copia.get(i);
-                System.out.println((i + 1) + ". " + item.getDescricao());
-            }
-            System.out.println((limite + 1) + ". Sair da loja");
-        }
 
-        // Vender um item ao herói, se possível
-        public void vender(Heroi heroi) {
-            Scanner scanner = new Scanner(System.in);
-            boolean comprar = true;
+            if (escolha == limite + 1) {
+                System.out.println("\nSaíste da loja.");
+                comprar = false;
+            } else if (escolha >= 1 && escolha <= limite) {
+                ItemHeroi item = copia.get(escolha - 1);
 
-            while (comprar) {
-                imprimirLoja();
-                System.out.print("Escolha um item para comprar (ou sair): ");
-                int escolha = scanner.nextInt();
-
-                ArrayList<ItemHeroi> copia = new ArrayList<>(loja);
-                Collections.shuffle(copia); // Baralha para manter o comportamento do imprimirLoja()
-                int limite = Math.min(10, copia.size());
-
-                if (escolha == limite + 1) {
-                    System.out.println("Saiu da loja.");
-                    comprar = false;
-                } else if (escolha >= 1 && escolha <= limite) {
-                    ItemHeroi item = copia.get(escolha - 1);
-
-                    if (!item.podeUsar(heroi)) {
-                        System.out.println("O seu herói não pode usar este item.");
-                    } else if (heroi.getOuro() < item.getPrecoMoedasOuro()) {
-                        System.out.println("Ouro insuficiente!");
-                    } else {
-                        heroi.retirarOuro(item.getPrecoMoedasOuro());
-
-                        if (item instanceof ArmaPrincipal) {
-                            heroi.equiparArma((ArmaPrincipal) item);
-                            System.out.println("Arma equipada: " + item.getNome());
-                        } else {
-                            heroi.adicionarItemAoInventario(item);
-                            System.out.println("Item adicionado ao inventário: " + item.getNome());
-                        }
-                    }
+                if (!item.podeUsar(heroi)) {
+                    System.out.println("\nO teu herói não pode usar este item.");
+                } else if (heroi.getOuro() < item.getPrecoMoedasOuro()) {
+                    System.out.println("\nOuro insuficiente!");
                 } else {
-                    System.out.println("Opção inválida.");
+                    heroi.retirarOuro(item.getPrecoMoedasOuro());
+                    System.out.println("\nOuro restante: " + heroi.getOuro());
+
+                    if (item instanceof ArmaPrincipal) {
+                        heroi.equiparArma((ArmaPrincipal) item);
+                        System.out.println("\nArma equipada: " + item.getNome());
+                    } else {
+                        heroi.adicionarItemAoInventario(item);
+                        System.out.println("\nItem adicionado ao inventário: " + item.getNome());
+                    }
                 }
+            } else {
+                System.out.println("\nOpção inválida.");
             }
         }
     }
+}
+
 
 
 
