@@ -71,9 +71,9 @@ public abstract class Heroi extends Entidade {
 
     public void recuperarVida(int vidaNova) {
         if (vidaNova > vidaMax) {
-            this.vida = vidaMax;
+            this.vidaAtual = vidaMax;
         } else {
-            this.vida = vidaNova;
+            this.vidaAtual = vidaNova;
         }
     }
 
@@ -84,7 +84,9 @@ public abstract class Heroi extends Entidade {
     }
 
     public void ganharForca(int quantidade) {
-        this.forca += quantidade;
+        if (quantidade > 0) {
+            this.forca += quantidade;
+        }
     }
 
     public void subirNivel() {
