@@ -11,6 +11,10 @@ public class Pocao extends Consumivel {
         this.aumentoForca = aumentoForca;
     }
 
+    public int getVidaCurar() {
+        return vidaCurar;
+    }
+
     @Override
     public void usar(Heroi heroi) {
         if (vidaCurar > 0) {

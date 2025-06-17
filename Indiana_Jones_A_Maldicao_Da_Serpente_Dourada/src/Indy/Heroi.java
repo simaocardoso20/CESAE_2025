@@ -1,6 +1,8 @@
 package Indy;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import Indy.Pocao;
 
 public abstract class Heroi extends Entidade {
 
@@ -83,6 +85,12 @@ public abstract class Heroi extends Entidade {
         }
     }
 
+    public void ganharOuro(int quantidade) {
+        if (quantidade > 0) {
+            this.ouro += quantidade;
+        }
+    }
+
     public void subirNivel() {
         this.nivel++;
         this.vidaMax += 10;
@@ -106,27 +114,82 @@ public abstract class Heroi extends Entidade {
         inventario.add(item);
     }
 
+    // O ataque do heroi
     public abstract boolean atacar(NPC inimigo);
 
+    // Poção após cada combate
+    public void usarPocaoPosCombate() {
+        Scanner scanner = new Scanner(System.in);
 
-    // Criei para testar ataques instantâneos mas retirei o metodo da jogabilidade
-    public void enfrentarNPC(NPC inimigo) {
-        System.out.println("Combate iniciado contra " + inimigo.getNome() + "!");
-
-        while (this.vidaAtual > 0 && inimigo.getVidaAtual() > 0) {
-            inimigo.receberDano(this.forca);
-
-            if (inimigo.getVidaAtual() > 0) {
-                this.receberDano(inimigo.getForca());
+        ArrayList<Pocao> pocoesDisponiveis = new ArrayList<>();
+        for (ItemHeroi item : inventario) {
+            if (item instanceof Pocao) {
+                pocoesDisponiveis.add((Pocao) item);
             }
         }
 
-        if (this.vidaAtual > 0) {
-            System.out.println("Você venceu " + inimigo.getNome() + "!");
-            recuperarVida(vidaMax);
-            ganharForca(10);
-        } else {
-            System.out.println("Você foi derrotado por " + inimigo.getNome() + ".");
+        if (pocoesDisponiveis.isEmpty()) {
+            System.out.println("⚠️ Não tens nenhuma poção no inventário.");
+            return;
         }
+
+        System.out.println("🎒 Poções disponíveis:");
+        for (int i = 0; i < pocoesDisponiveis.size(); i++) {
+            Pocao p = pocoesDisponiveis.get(i);
+            System.out.println(i + 1 + " - " + p.getNome() + " (cura " + p.getVidaCurar() + " HP)");
+        }
+
+        System.out.print("Queres usar alguma poção? (s/n): ");
+        String resposta = scanner.nextLine().trim().toLowerCase();
+        if (!resposta.equals("s")) return;
+
+        System.out.print("Escolhe o número da poção que queres usar: ");
+        int escolha;
+        try {
+            escolha = Integer.parseInt(scanner.nextLine()) - 1;
+        } catch (NumberFormatException e) {
+            System.out.println("❌ Escolha inválida.");
+            return;
+        }
+
+        if (escolha < 0 || escolha >= pocoesDisponiveis.size()) {
+            System.out.println("❌ Escolha inválida.");
+            return;
+        }
+
+        Pocao escolhida = pocoesDisponiveis.get(escolha);
+        int vidaAntes = vidaAtual;
+        int excesso = (vidaAtual + escolhida.getVidaCurar()) - vidaMax;
+
+        if (excesso > 0) {
+            System.out.println("⚠️ A poção vai curar mais do que a tua vida máxima.");
+            System.out.println("Perderás " + excesso + " pontos de cura. Desejas continuar? (s/n): ");
+            String confirmacao = scanner.nextLine().trim().toLowerCase();
+            if (!confirmacao.equals("s")) {
+                System.out.println("❌ Poção não utilizada.");
+                return;
+            }
+        }
+
+        curar(escolhida.getVidaCurar());
+        inventario.remove(escolhida);
+        System.out.println("✅ Usaste " + escolhida.getNome() + " e recuperaste " + (vidaAtual - vidaAntes) + " de vida.");
+    }
+
+    public void sofrerDanoAleatorio() {
+        int dano = (int) (Math.random() * 30) + 1;  // Gera número entre 1 e 30
+        perderVida(dano);
+        System.out.println("⚠️ Estás ferido e perdeste " + dano + " pontos de vida!");
+    }
+
+    private boolean podeFazerMissaoAldeia = false;
+
+    public void permitirMissaoAldeia() {
+        this.podeFazerMissaoAldeia = true;
+    }
+
+    public boolean temPermissaoMissaoAldeia() {
+        return this.podeFazerMissaoAldeia;
     }
 }
+

@@ -8,6 +8,7 @@ public class MainCriarPersonagem {
         Scanner scanner = new Scanner(System.in);
         boolean jogarNovamente = true;
         Heroi heroi = null; // Declarar a variável heroi aqui
+        Jogo.inicializarNPCs();
 
         while (jogarNovamente) {
             // Iniciar o jogo
@@ -20,13 +21,14 @@ public class MainCriarPersonagem {
             Jogo.introducaoHistoria();
 
             // Mostrar roteiro do jogo personalizado: Missão 1
-            Jogo.mostrarRoteiroPersonalizado(heroi); // Inclui luta com o macaco lider
+            Jogo.mostrarRoteiroPersonalizado(heroi);
+            Jogo.abrirLoja(heroi); // Inclui o vendedor
+            Jogo.missaoSelva(heroi);// Inclui luta com o macaco lider
 
-            // Aceder à loja (vendedor e itens)
-            Jogo.abrirLoja(heroi);
-
-            // Missão 2 (Templo) ou alternativo
+            // Missão Templo ou alternativo
             Jogo.missaoTemplo(heroi);
+
+            // Missão Aldeia
             Jogo.missaoAldeia(heroi); // Inclui luta com o Guerreiro Tribal
 
             // Desafio chave cristal / Adivinha

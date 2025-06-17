@@ -38,14 +38,29 @@ public class Vendedor {
         ArrayList<ItemHeroi> copia = new ArrayList<>(loja); // Cópia feita uma vez
         Collections.shuffle(copia); // Baralhar só uma vez
 
-        // mostrar a mesma lista sempre
+        int limite = Math.min(10, copia.size());
+
+        // Mostrar loja
         imprimirLoja(copia);
 
         while (comprar) {
-            System.out.print("\nEscolhe um item para comprar (ou sair): ");
-            int escolha = scanner.nextInt();
+            // Verifica a cada ciclo se ainda há itens que o herói pode comprar
+            boolean algumItemCompravel = false;
+            for (int i = 0; i < limite; i++) {
+                if (copia.get(i).getPrecoMoedasOuro() <= heroi.getOuro()) {
+                    algumItemCompravel = true;
+                    break;
+                }
+            }
 
-            int limite = Math.min(10, copia.size());
+            if (!algumItemCompravel) {
+                System.out.println("\n⚠️ Já não tens ouro suficiente para comprar mais nada.");
+                System.out.println("A sair da loja...\n");
+                return;
+            }
+
+            System.out.print("\nEscolhe um item para comprar (ou " + (limite + 1) + " para sair): ");
+            int escolha = scanner.nextInt();
 
             if (escolha == limite + 1) {
                 System.out.println("\nSaíste da loja.");
@@ -63,10 +78,10 @@ public class Vendedor {
 
                     if (item instanceof ArmaPrincipal) {
                         heroi.equiparArma((ArmaPrincipal) item);
-                        System.out.println("\nArma equipada: " + item.getNome());
+                        System.out.println("Arma equipada: " + item.getNome());
                     } else {
                         heroi.adicionarItemAoInventario(item);
-                        System.out.println("\nItem adicionado ao inventário: " + item.getNome());
+                        System.out.println("Item adicionado ao inventário: " + item.getNome());
                     }
                 }
             } else {
