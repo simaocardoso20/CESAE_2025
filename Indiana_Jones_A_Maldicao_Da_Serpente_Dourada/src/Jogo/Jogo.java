@@ -84,7 +84,13 @@ public class Jogo {
         return -1;
     }
 
-
+    /**
+     * Inicializa os NPCs do jogo com atributos definidos.
+     *
+     * Requisitos:
+     * As variáveis devoradorAlmas, guerreiroTribal, protetorSagrado,
+     * espectroGuardiao, sentinelaSombrasEternas e bossFinal devem estar declaradas.
+     */
     public static void iniciar() throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         Audio.playMusic("AudioFiles/IndianaJonesThemeSong.wav");
@@ -101,12 +107,27 @@ public class Jogo {
         String username = scanner.nextLine();
         System.out.println("Olá, " + username + "! Prepara-te para esta grande aventura...\n");
     }
-
+    /**
+     * Aguarda o utilizador pressionar Enter para continuar.
+     *
+     * Requisitos:
+     * Recebe um objeto Scanner já inicializado para leitura da entrada.
+     */
     private static void esperarEnter(Scanner scanner) {
         System.out.print(ConsoleColors.GREEN_BOLD + "\nEnter para continuar...)\n" + ConsoleColors.RESET);
         scanner.nextLine();
     }
 
+    /**
+     * Cria um herói com base na escolha do utilizador e distribui atributos.
+     *
+     * Requisitos:
+     * Utiliza {@code Scanner} para leitura de input.
+     * Requer classes IndianaJones, HansVogel e SophieValen implementadas.
+     * O utilizador deve escolher personagem, dificuldade e distribuir pontos corretamente.
+     *
+     * @return Instância de uma subclasse de Heroi com os atributos escolhidos.
+     */
     public static Heroi criarPersonagem() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("=================================== CRIAÇÃO DA PERSONAGEM ===================================\n");
@@ -226,7 +247,12 @@ public class Jogo {
         }
     }
 
-
+    /**
+     * Exibe a introdução narrativa do jogo ao utilizador.
+     *
+     * Requisitos:
+     * Utiliza {@code Scanner} para esperar o utilizador pressionar Enter entre blocos de texto.
+     */
     public static void introducaoHistoria() {
         Scanner scanner = new Scanner(System.in);
 
@@ -245,7 +271,13 @@ public class Jogo {
         esperarEnter(scanner);
     }
 
-
+    /**
+     * Apresenta a introdução personalizada da Missão 1 com base no herói escolhido.
+     *
+     * Requisitos:
+     * Recebe um objeto {@code Heroi} válido.
+     * Utiliza {@code Scanner} para pausas entre os textos com o método auxiliar {@code esperarEnter}.
+     */
     public static void mostrarRoteiroPersonalizado(Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
 
@@ -299,12 +331,26 @@ public class Jogo {
         }
     }
 
+    /**
+     * Abre a loja do jogo, permitindo ao herói comprar itens.
+     *
+     * Requisitos:
+     * Recebe um objeto {@code Heroi} válido.
+     * Requer as classes {@code Vendedor} e o metodo {@code carregarItensLoja(Vendedor)} implementados.
+     */
     public static void abrirLoja(Heroi heroi) {
         Vendedor vendedor = new Vendedor();
         carregarItensLoja(vendedor);
         vendedor.vender(heroi);
     }
 
+    /**
+     * Carrega os itens disponíveis na loja para o vendedor.
+     *
+     * Requisitos:
+     * Recebe um objeto {@code Vendedor} válido.
+     * Adiciona poções, armas específicas para cada herói e itens gerais.
+     */
     public static void carregarItensLoja(Vendedor vendedor) {
         // Poções (usáveis por todos os heróis)
         vendedor.adicionarItem(new Pocao("Poção de vida normal", 10, 25, 5));
