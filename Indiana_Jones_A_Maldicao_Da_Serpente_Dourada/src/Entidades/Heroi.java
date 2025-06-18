@@ -258,6 +258,16 @@ public abstract class Heroi extends Entidade {
         return this.podeFazerMissaoAldeia;
     }
 
+    public void permitirMissaoPiramide() {
+        this.podeFazerMissaoPiramide = true;
+    }
+
+    public boolean temPermissaoMissaoPiramide() {
+        return this.podeFazerMissaoPiramide;
+    }
+
+
+
     public void recuperarVida() {
         this.vidaAtual = this.vidaMax;
         System.out.println("❤️ Vida totalmente restaurada!");

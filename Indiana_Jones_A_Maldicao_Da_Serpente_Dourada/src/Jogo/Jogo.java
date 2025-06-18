@@ -543,10 +543,15 @@ public class Jogo {
                 heroi.recuperarVida(heroi.getVidaMax()); // restaura a vida
                 heroi.ganharForca(20);
                 heroi.ganharOuro(20);
+                heroi.permitirMissaoPiramide();
+                esperarEnter(scanner);
+
             } else {
                 tentativas++;
                 heroi.perderVida(5);
                 System.out.println("⚠️ Resposta errada! Perdes 5 pontos de vida. Tentativas restantes: " + (3 - tentativas));
+                // Termina o jogo
+                System.exit(0);
             }
         }
 
@@ -556,7 +561,8 @@ public class Jogo {
             System.out.println("🌪️ Corres por entre colunas a cair, pedras e poeira... e consegues escapar do templo com vida.");
             System.out.println("Mas sofres ferimentos graves.");
             heroi.sofrerDanoAleatorio();
-            System.out.println("Com a chave nas mãos, respiras fundo. O verdadeiro desafio ainda está por vir...");
+            System.out.println("Com a chave nas mãos, sentes que o verdadeiro desafio ainda está por vir...");
+
         }
     }
 

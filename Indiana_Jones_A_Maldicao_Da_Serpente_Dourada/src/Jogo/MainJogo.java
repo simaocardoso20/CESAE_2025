@@ -31,7 +31,7 @@ public class MainJogo {
                 Jogo.missaoTemplo(heroi);
                 Jogo.missaoAldeia(heroi);
                 Jogo.desafioChaveCristal(heroi);
-                Jogo.missaopiramide(heroi);
+                Jogo.missaoPiramide(heroi);
                 Jogo.missaoBossFinal(heroi);
 
                 }
