@@ -2,9 +2,11 @@ package Entidades;
 
 import Items.ConsumivelCombate;
 
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import Jogo.Jogo;
 
 public class SophieValen extends Heroi {
 
@@ -46,9 +48,8 @@ public class SophieValen extends Heroi {
                     System.out.println("Opção inválida.");
             }
 
-            if (!inimigo.estaVivo()) {
-
-                // Sofre 10% mais dano
+            if (inimigo.estaVivo()) {
+                // Contra-ataque com 10% mais dano
                 int danoRecebido = (int) (inimigo.getForca() * 1.1);
                 this.receberDano(danoRecebido);
                 System.out.println(inimigo.getNome() + " contra-atacou com " + danoRecebido + " de dano (+10%)");
@@ -83,6 +84,8 @@ public class SophieValen extends Heroi {
             inimigo.receberDano(c.getAtaqueInstantaneo());
             inventario.remove(c);
             System.out.println("💣 Usaste " + c.getNome() + " causando " + c.getAtaqueInstantaneo() + " de dano!");
+        } else {
+            System.out.println("Ação cancelada.");
         }
     }
 
@@ -93,7 +96,8 @@ public class SophieValen extends Heroi {
             subirNivel();
             return true;
         } else {
-            System.out.println("💀 Foste derrotada...");
+            System.out.println("\n❌ Foste derrotada!!!");
+            System.out.println("💀 Tenta novamente, vou pedir aos teus inimigos para serem mais meigos contigo.");
             return false;
         }
     }

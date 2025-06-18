@@ -1,7 +1,7 @@
 package Entidades;
 
 import Items.ConsumivelCombate;
-
+import Jogo.Jogo;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -13,6 +13,15 @@ public class IndianaJones extends Heroi {
         this.ataqueEspecialUsado = false;
     }
 
+
+    /**
+     * Método responsável pela lógica de combate entre o herói e um NPC.
+     * O herói escolhe um tipo de ataque e o inimigo ataca primeiro com uma porcentagem reduzida de sua força.
+     * O combate continua até que um dos dois, o herói ou o inimigo, morra.
+     *
+     * @param inimigo O NPC que o herói está enfrentando.
+     * @return {@code true} se o herói vencer a luta, {@code false} caso contrário.
+     */
     @Override
     public boolean atacar(NPC inimigo) {
         Scanner scanner = new Scanner(System.in);
@@ -65,11 +74,13 @@ public class IndianaJones extends Heroi {
             adicionarOuro(inimigo.getOuro());
             subirNivel();
         } else {
-            System.out.println("💀 Foste derrotado por " + inimigo.getNome() + "...");
+
         }
 
         return venceu;
     }
+
+
 
     private void usarConsumivelCombate(NPC inimigo) {
         List<ConsumivelCombate> consumiveis = inventario.stream()
