@@ -31,12 +31,12 @@ public class Jogo {
     public static NPC reiDasTrevas;
 
     public static void inicializarNPCs() {
-        devoradorAlmas = new NPC("Devorador de Almas", 110, 1, 10, 35);
-        guerreiroTribal = new NPC("Guerreiro Tribal", 100, 1, 20, 35);
-        protetorSagrado = new NPC("Protetor Sagrado", 120, 1, 30, 35);
-        espectroGuardiao = new NPC("Espectro Guardião", 130, 1, 35, 35);
-        sentinelaSombrasEternas = new NPC("Sentinela das Sombras Eternas", 100, 1, 18, 30);
-        reiDasTrevas = new NPC("Rei das Trevas", 150, 1, 40, 100);
+        devoradorAlmas = new NPC("Devorador de Almas", 110, 100, 10, 35);
+        guerreiroTribal = new NPC("Guerreiro Tribal", 100, 100, 20, 35);
+        protetorSagrado = new NPC("Protetor Sagrado", 120, 100, 30, 35);
+        espectroGuardiao = new NPC("Espectro Guardião", 130, 100, 35, 35);
+        sentinelaSombrasEternas = new NPC("Sentinela das Sombras Eternas", 100, 100, 18, 30);
+        reiDasTrevas = new NPC("Rei das Trevas", 150, 100, 40, 100);
     }
 
     /**
@@ -395,6 +395,7 @@ public class Jogo {
                 // Lutar com NPC aleatório
                 NPC inimigo = gerarNPCaleatorio();
                 boolean venceu = heroi.atacar(inimigo);
+                Audio.playMusic("AudioFiles/chicote_oot5qIw.wav");
 
                 if (venceu) {
                     System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -550,8 +551,7 @@ public class Jogo {
                 tentativas++;
                 heroi.perderVida(5);
                 System.out.println("⚠️ Resposta errada! Perdes 5 pontos de vida. Tentativas restantes: " + (3 - tentativas));
-                // Termina o jogo
-                System.exit(0);
+
             }
         }
 
@@ -561,7 +561,9 @@ public class Jogo {
             System.out.println("🌪️ Corres por entre colunas a cair, pedras e poeira... e consegues escapar do templo com vida.");
             System.out.println("Mas sofres ferimentos graves.");
             heroi.sofrerDanoAleatorio();
-            System.out.println("Com a chave nas mãos, sentes que o verdadeiro desafio ainda está por vir...");
+            System.out.println("Com a chave nas mãos, sentes que o verdadeiro desafio ainda estava para vir...");
+            System.out.println("Demoraste muito tempo para sair, estás a sangrar muito. A vida e a chave estão a fugir-te das mãos. Vais ter que tentar de novo!");
+
 
         }
     }
@@ -584,6 +586,7 @@ public class Jogo {
         // Lutar com NPC aleatório
         NPC inimigo = gerarNPCaleatorio();
         boolean venceu = heroi.atacar(inimigo);
+        Audio.playMusic("AudioFiles/chicote_oot5qIw.wav");
 
         if (venceu) {
             System.out.println("\n🏆 Vitória! O teu adversário cai de joelhos e os anciãos da aldeia aproximam-se.");
@@ -628,7 +631,7 @@ public class Jogo {
      * @param heroi O herói controlado pelo jogador que participa na missão.
      * @throws FileNotFoundException Caso o arquivo de game over não seja encontrado.
      */
-    public static void missaopiramide(Heroi heroi) throws FileNotFoundException {
+    public static void missaoPiramide(Heroi heroi) throws FileNotFoundException {
         Scanner scanner = new Scanner(System.in);
         System.out.println(ConsoleColors.YELLOW + "\n======== MISSÃO 3 - O VALE DOS MORTOS ========\n" + ConsoleColors.RESET);
 
@@ -681,6 +684,7 @@ public class Jogo {
                 // Lutar com NPC aleatório
                 NPC inimigo = gerarNPCaleatorio();
                 boolean venceu = heroi.atacar(inimigo);
+                Audio.playMusic("AudioFiles/chicote_oot5qIw.wav");
 
                 if (venceu) {
                     System.out.println("------------------------------------------------------------------------------------------------------------");
@@ -777,7 +781,7 @@ public class Jogo {
         vendedor.adicionarItem(new ArmaPrincipal("Tocha", 10, 10, 15, 10, "Todos"));
         vendedor.adicionarItem(new ArmaPrincipal("Corda com Gancho", 10, 10, 15, 10, "Todos"));
     }
-}
+
 
 /**
  * Representa a última missão no jogo, onde o herói enfrenta o Rei da Câmara Esquecida na Pirâmide do Último Sol.
@@ -798,16 +802,20 @@ public static void missaoBossFinal(Heroi heroi) throws FileNotFoundException {
 
     NPC inimigo = gerarNPCaleatorio();
     boolean venceu = heroi.atacar(inimigo);
+    Audio.playMusic("AudioFiles/chicote_oot5qIw.wav");
 
     if (venceu) {
         System.out.println("------------------------------------------------------------------------------------------------------------");
         System.out.println("Após uma batalha feroz, tu finalmente derrotas o Rei da Câmara Esquecida!");
         System.out.println("Com um rugido final, o Rei cai de joelhos e se desfaz em ouro e pó, a serpente dourada está a poucos metros de ti.");
-        System.out.println("Mas a câmara começa a desmoronar-se e tu tens que decidir se arriscas a tua vida.");
-        System.out.println("Desiste... foge enquanto podes ou vais ser mais um a morrer esquecido.");
+        System.out.println("Mas a câmara começa a desmoronar-se e tu tens que decidir se estás disposto a arriscar a tua vida.");
+        System.out.println("Desiste... foge enquanto podes ou vais ser mais um esqueleto amontoado.");
         System.out.println("Boa decisão... não te vão faltar outros tesouros para descobrir.");
+        System.out.println("PARABÉNS PELA VITÓRIA!!!");
 
-        heroi.usarPocaoPosCombate();
+        // Mostrar o conteúdo do ficheiro ASCII
+        FileTools.printFile("AsciiFiles/cup.txt");
+
 
     } else {
 
@@ -831,5 +839,6 @@ public static void missaoBossFinal(Heroi heroi) throws FileNotFoundException {
         System.exit(0);
 
     }
+}
 }
 

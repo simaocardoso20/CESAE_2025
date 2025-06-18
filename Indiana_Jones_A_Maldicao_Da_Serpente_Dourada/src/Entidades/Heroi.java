@@ -258,6 +258,8 @@ public abstract class Heroi extends Entidade {
         return this.podeFazerMissaoAldeia;
     }
 
+    private boolean podeFazerMissaoPiramide = false;
+
     public void permitirMissaoPiramide() {
         this.podeFazerMissaoPiramide = true;
     }
@@ -265,7 +267,6 @@ public abstract class Heroi extends Entidade {
     public boolean temPermissaoMissaoPiramide() {
         return this.podeFazerMissaoPiramide;
     }
-
 
 
     public void recuperarVida() {
