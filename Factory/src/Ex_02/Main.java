@@ -1,8 +1,8 @@
-package Ex_2;
+package Ex_02;
 
 import java.util.Scanner;
 
-public class RestauranteMexicano {
+public class Main {
     public static void main(String[] args) {
 
         // Scanner
@@ -11,14 +11,13 @@ public class RestauranteMexicano {
         // Declarar Variáveis
         String escolha;
 
-        System.out.println("Qual o tipo de taco (Carne Vaca, Carne Frango, Vegetariano, Pimentos): ");
+        System.out.println("Qual o tipo de taco (Carne Vaca, Carne Frango, Vegetariano): ");
         escolha= input.nextLine();
 
-        Taco tacoUser = TacoFactory.createTaco(escolha.toUpperCase());
+        Taco tacoUser = FactoryTaco.createTaco(escolha.toUpperCase());
 
         tacoUser.prepare();
         tacoUser.bake();
         tacoUser.box();
-        tacoUser.eat();
     }
 }

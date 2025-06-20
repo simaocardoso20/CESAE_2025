@@ -1,4 +1,4 @@
-package Ex_2;
+package Ex_02;
 
 public abstract class Taco {
 
@@ -16,7 +16,5 @@ public abstract class Taco {
      * Método para imprimir na consola que o taco está a ser embalado
      */
     public abstract void box();
-    public void eat(){
-        System.out.println("A comer o taco...");
     }
-}
+
