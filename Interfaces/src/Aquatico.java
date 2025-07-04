@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class Aquatico {
+public interface Aquatico {
+
+    public void nadar();
+
+    public void mergulhar();
 }

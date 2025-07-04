@@ -30,16 +30,21 @@ public class ClientView {
 
             switch (opcaoCliente){
                 case 1: // Consultar Produtos Disponíveis
-
-                    System.out.println("\n***** Produtos Disponíveis *****");
-                    System.out.println(this.clientController.produtosDisponiveis());
+                    System.out.println("\n******** Produtos Disponíveis ********\n");
+                    this.clientController.produtosDisponiveis();
 
                     break;
 
                 case 2 : // Consultar Produtos p/ Categoria
+                    System.out.println("\n******** Produtos por Categoria ********\n");
+                    this.clientController.produtosCategoria();
+
                     break;
 
                 case 3: // Consultar Produto Mais Barato / Mais Caro
+                    System.out.println("\n******** Produto Mais Barato e Mais Caro ********\n");
+                    this.clientController.produtoBaratoCaro();
+
                     break;
 
                 case 0: // Voltar

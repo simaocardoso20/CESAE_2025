@@ -1,2 +1,8 @@
-package PACKAGE_NAME;public class Terrestre {
+public interface Terrestre {
+
+    public void correr();
+
+    public void escalar();
+
+    public void rastejar();
 }

@@ -51,6 +51,8 @@ public class AdminView {
                     break;
 
                 case 6:
+                    System.out.println("\n***** Média das Vendas *****");
+                    System.out.println(this.adminController.averageSalesValue()+" €");
                     break;
 
                 case 0:
