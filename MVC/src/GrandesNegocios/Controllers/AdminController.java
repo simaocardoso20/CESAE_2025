@@ -23,6 +23,9 @@ public class AdminController {
 
         return totalSalesValue;
     }
+    public double averageSalesValue(){
+        return this.totalSalesValue()/this.salesRepository.getSalesArray().size();
+    }
 
 
 }
