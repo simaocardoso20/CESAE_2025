@@ -18,6 +18,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Utilizadores, vazio
         ArrayList<User> usersArray = new ArrayList<>();
 
+        // Ignoramos a primeira linha (cabeçalho)
+        if (usersScanner.hasNextLine()) {
+            usersScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (usersScanner.hasNextLine()) {
@@ -55,8 +59,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Vendas, vazio
         ArrayList<Cliente> clienteArray = new ArrayList<>();
 
-        // Avançar o cabeçalho
-        clientesScanner.nextLine();
+        // Ignoramos a primeira linha (cabeçalho)
+        if (clientesScanner.hasNextLine()) {
+            clientesScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (clientesScanner.hasNextLine()) {
@@ -73,10 +79,11 @@ public class CSVFileReader {
             String nacionalidade = linhaSeparada[2];
             String email = linhaSeparada[3];
             int telemovel =  Integer.parseInt(linhaSeparada[4]);
-            int anoNascimento = Integer.parseInt(linhaSeparada[5]);
-            int mesNascimento = Integer.parseInt(linhaSeparada[6]);
-            int diaNascimento = Integer.parseInt(linhaSeparada[7]);
-            boolean consentimentoMarketing = Boolean.parseBoolean(linhaSeparada[8]);
+            String[] dataNascimento = linhaSeparada[5].split("-");
+            int anoNascimento = Integer.parseInt(dataNascimento[0]);
+            int mesNascimento = Integer.parseInt(dataNascimento[1]);
+            int diaNascimento = Integer.parseInt(dataNascimento[2]);
+            boolean consentimentoMarketing = Boolean.parseBoolean(linhaSeparada[6]);
 
 
 
@@ -102,8 +109,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Vendas, vazio
         ArrayList<Experiencia> experienciaArray = new ArrayList<>();
 
-        // Avançar o cabeçalho
-        experienciasScanner.nextLine();
+        // Ignoramos a primeira linha (cabeçalho)
+        if (experienciasScanner.hasNextLine()) {
+            experienciasScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (experienciasScanner.hasNextLine()) {
@@ -120,7 +129,6 @@ public class CSVFileReader {
             String idGuia = linhaSeparada[2];
             double precoAdulto = Double.parseDouble(linhaSeparada[3]);
             double precoCrianca =  Double.parseDouble(linhaSeparada[4]);
-
 
 
             // Criar nova Venda
@@ -145,8 +153,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Vendas, vazio
         ArrayList<GuiaExperiencia> guiaExperienciaArray = new ArrayList<>();
 
-        // Avançar o cabeçalho
-        guiasexperienciasScanner.nextLine();
+        // Ignoramos a primeira linha (cabeçalho)
+        if (guiasexperienciasScanner.hasNextLine()) {
+            guiasexperienciasScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (guiasexperienciasScanner.hasNextLine()) {
@@ -186,6 +196,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Utilizadores, vazio
         ArrayList<Quarto> quartosArray = new ArrayList<>();
 
+        // Ignoramos a primeira linha (cabeçalho)
+        if (quartosScanner.hasNextLine()) {
+            quartosScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (quartosScanner.hasNextLine()) {
@@ -221,6 +235,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Utilizadores, vazio
         ArrayList<RatingExperiencia> ratingsExperienciasArray = new ArrayList<>();
 
+        // Ignoramos a primeira linha (cabeçalho)
+        if (ratingsExperienciasScanner.hasNextLine()) {
+            ratingsExperienciasScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (ratingsExperienciasScanner.hasNextLine()) {
@@ -260,6 +278,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Utilizadores, vazio
         ArrayList<ReservaQuarto> reservasQuartosArray = new ArrayList<>();
 
+        // Ignoramos a primeira linha (cabeçalho)
+        if (reservasQuartosScanner.hasNextLine()) {
+            reservasQuartosScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (reservasQuartosScanner.hasNextLine()) {
@@ -299,6 +321,10 @@ public class CSVFileReader {
         // Criamos o ArrayList de Utilizadores, vazio
         ArrayList<Tipologia> tipologiasArray = new ArrayList<>();
 
+        // Ignoramos a primeira linha (cabeçalho)
+        if (tipologiasScanner.hasNextLine()) {
+            tipologiasScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (tipologiasScanner.hasNextLine()) {
@@ -336,6 +362,11 @@ public class CSVFileReader {
         // Criamos o ArrayList de Utilizadores, vazio
         ArrayList<VendaExperiencia> VendasExperienciasArray = new ArrayList<>();
 
+
+        // Ignoramos a primeira linha (cabeçalho)
+        if (VendasExperienciasScanner.hasNextLine()) {
+            VendasExperienciasScanner.nextLine();
+        }
 
         // Ciclo que vai correr para cada linha do ficheiro
         while (VendasExperienciasScanner.hasNextLine()) {

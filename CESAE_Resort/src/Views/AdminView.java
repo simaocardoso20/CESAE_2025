@@ -20,7 +20,7 @@ public class AdminView {
 
         do {
 
-            System.out.println("\n\n********** MENU ADMIN **********");
+            System.out.println("\n\n\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC MENU ADMIN \uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC");
             System.out.println("1. Consultar Total de Reservas");
             System.out.println("2. Consultar Total de Receitas");
             System.out.println("3. Consultar Reservas/Receitas Mensais");
@@ -33,55 +33,55 @@ public class AdminView {
             System.out.println("10.Adicionar Novo Login");
             System.out.println("0. Voltar\n");
 
-            System.out.print("\nOpção: ");
+            System.out.print("Opção: ");
             opcaoAdmin= input.nextInt();
 
             switch (opcaoAdmin){
                 case 1:
-                    System.out.println("\n***** Consultar Total de Reservas *****");
+                    System.out.println("\n\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F Consultar Total de Reservas \uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F");
                     break;
 
                 case 2:
-                    System.out.println("\n***** Consultar Total de Receitas *****");
+                    System.out.println("\n\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2 Consultar Total de Receitas \uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2");
                     break;
 
 
                 case 3:
-                    System.out.println("\n***** Consultar Reservas/Receitas Mensais *****");
+                    System.out.println("\n\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2 Consultar Reservas/Receitas Mensais \uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2");
                     break;
 
 
                 case 4:
-                    System.out.println("\n***** Consultar Tipologia de Quarto Mais Reservada *****");
+                    System.out.println("\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Tipologia de Quarto Mais Reservada \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC");
                     break;
 
                 case 5:
-                    System.out.println("\n***** Consultar Experiência Mais Procurada (Adultos) *****");
+                    System.out.println("\n\uD83E\uDD3F\uD83E\uDD3F\uD83E\uDD3F Consultar Experiência Mais Procurada (Adultos) \uD83E\uDD3F\uD83E\uDD3F\uD83E\uDD3F");
 
                     break;
 
                 case 6:
-                    System.out.println("\n***** Consultar Experiência Mais Procurada (Crianças) *****");
+                    System.out.println("\n\uD83D\uDEF6\uD83D\uDEF6\uD83D\uDEF6 Consultar Experiência Mais Procurada (Crianças) \uD83D\uDEF6\uD83D\uDEF6\uD83D\uDEF6");
 
                     break;
 
                 case 7:
-                    System.out.println("\n***** Consultar Experiência Mais Lucrativa *****");
+                    System.out.println("\n\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2 Consultar Experiência Mais Lucrativa \uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2");
 
                     break;
 
                 case 8:
-                    System.out.println("\n***** Consultar Experiência Menos Lucrativa *****");
+                    System.out.println("\n\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2 Consultar Experiência Menos Lucrativa \uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2");
 
                     break;
 
                 case 9:
-                    System.out.println("\n***** Consultar Quarto com Melhor Preço/Semana *****");
+                    System.out.println("\n\uD83E\uDDF3\uD83E\uDDF3\uD83E\uDDF3 Consultar Quarto com Melhor Preço/Semana *****");
 
                     break;
 
                 case 10:
-                    System.out.println("\n***** Adicionar Novo Login *****");
+                    System.out.println("\n\uD83C\uDD95\uD83C\uDD95\uD83C\uDD95 Adicionar Novo Login \uD83E\uDDF3\uD83E\uDDF3\uD83E\uDDF3");
 
                     break;
 

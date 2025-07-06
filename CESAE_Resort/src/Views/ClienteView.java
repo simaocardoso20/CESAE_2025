@@ -20,40 +20,40 @@ public class ClienteView {
 
         do {
 
-            System.out.println("\n\n********** MENU CLIENTE **********");
+            System.out.println("\n\n⭐⭐⭐⭐⭐ MENU CLIENTE ⭐⭐⭐⭐⭐");
             System.out.println("1. Consultar Quartos Disponíveis");
             System.out.println("2. Consultar Experiências Disponíveis");
             System.out.println("3. Consultar Experiência Favorita");
             System.out.println("4. Consultar Experiência Top-Seller");
             System.out.println("5. Avaliar uma Experiência");
-            System.out.println("0. Voltar");
+            System.out.println("0. Voltar\n");
 
             System.out.print("Opção: ");
             opcaoCliente= input.nextInt();
 
             switch (opcaoCliente){
                 case 1:
-                    System.out.println("\n******** Consultar Quartos Disponíveis ********\n");
+                    System.out.println("\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Disponíveis \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC");
 
                     break;
 
                 case 2 :
-                    System.out.println("\n******** Consultar Experiências Disponíveis ********\n");
+                    System.out.println("\n\uD83E\uDD3F\uD83E\uDD3F\uD83E\uDD3F Consultar Experiências Disponíveis \uD83E\uDD3F\uD83E\uDD3F\uD83E\uDD3F");
 
                     break;
 
                 case 3:
-                    System.out.println("\n******** Consultar Experiência Favorita ********\n");
+                    System.out.println("\n\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47 Consultar Experiência Favorita \uD83D\uDC47\uD83D\uDC47\uD83D\uDC47");
 
                     break;
 
                 case 4:
-                    System.out.println("\n******** Consultar Experiência Top-Seller ********\n");
+                    System.out.println("\n\uD83D\uDD1D\uD83D\uDD1D\uD83D\uDD1D Consultar Experiência Top-Seller \uD83D\uDD1D\uD83D\uDD1D\uD83D\uDD1D");
 
                     break;
 
                 case 5:
-                    System.out.println("\n******** Avaliar uma Experiência ********\n");
+                    System.out.println("\n\uD83D\uDCDD\uD83D\uDCDD\uD83D\uDCDD Avaliar uma Experiência \uD83D\uDCDD\uD83D\uDCDD\uD83D\uDCDD");
 
                     break;
 

@@ -2,6 +2,8 @@ package Views;
 
 import Controllers.LoginController;
 import Controllers.ClienteController;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -14,11 +16,15 @@ public class LoginView {
     }
 
     public void mainMenu() throws FileNotFoundException {
+
+        // Mostrar a imagem ASCII
+        mostrarImagemAscii("Files/CESAE_Resort.txt");
+
         Scanner input = new Scanner(System.in);
         int opcaoLogin;
 
         do {
-            System.out.println("\n\n********** Bem-vindo/a ao CESAE RESORT **********\n");
+            System.out.println("\n⭐⭐⭐⭐⭐ CESAE RESORT ⭐⭐⭐⭐⭐\n");
             System.out.println("1. Cliente");
             System.out.println("2. Login");
             System.out.println("0. Sair");
@@ -32,16 +38,9 @@ public class LoginView {
                     break;
 
                 case 2:
-                    loginMenu("ADMIN");
+                    loginMenu();
                     break;
 
-                case 3:
-                    loginMenu("GESTAO");
-                    break;
-
-                case 4:
-                    loginMenu("GUIA");
-                    break;
 
                 case 0:
                     System.out.println("\nObrigado por utilizar o nosso programa... Até à próxima!");
@@ -52,7 +51,7 @@ public class LoginView {
         } while (opcaoLogin != 0);
     }
 
-    public void loginMenu(String tipoAcesso) throws FileNotFoundException {
+    public void loginMenu() throws FileNotFoundException {
 
         Scanner input = new Scanner(System.in);
 
@@ -64,19 +63,31 @@ public class LoginView {
 
         String accessType = this.loginController.validateLogin(usernameInput, passwordInput);
 
-        if (accessType.equals(tipoAcesso)) {
-            if (accessType.equals("ADMIN")) {
+        switch (accessType) {
+            case "ADMIN":
                 AdminView av = new AdminView();
                 av.adminMenu();
-            } else if (accessType.equals("GESTAO")) {
+                break;
+            case "GESTAO":
                 RececionistaView rv = new RececionistaView();
                 rv.rececionistaMenu();
-            } else if (accessType.equals("GUIA")) {
+                break;
+            case "GUIA":
                 GuiaView gv = new GuiaView();
                 gv.guiaMenu();
-            }
-        } else {
-            System.out.println("Acesso inválido ou sem permissões para este menu!");
+                break;
+            default:
+                System.out.println("Acesso inválido ou sem permissões para este menu!");
         }
     }
+
+    private void mostrarImagemAscii(String caminhoFicheiro) throws FileNotFoundException {
+        File file = new File(caminhoFicheiro);
+        Scanner leitor = new Scanner(file);
+        while (leitor.hasNextLine()) {
+            System.out.println(leitor.nextLine());
+        }
+        leitor.close();
+    }
 }
+

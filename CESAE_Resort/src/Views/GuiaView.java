@@ -21,16 +21,16 @@ public class GuiaView {
 
         do {
 
-            System.out.println("\n\n********** MENU GUIA **********");
+            System.out.println("\n\nℹ\uFE0Fℹ\uFE0Fℹ\uFE0F MENU GUIA ℹ\uFE0Fℹ\uFE0Fℹ\uFE0F");
             System.out.println("1. Consultar Histórico de Experiências");
-            System.out.println("0. Voltar");
+            System.out.println("0. Voltar\n");
 
             System.out.print("Opção: ");
             opcaoGuia= input.nextInt();
 
             switch (opcaoGuia){
                 case 1:
-                    System.out.println("\n******** Consultar Histórico de Experiências ********\n");
+                    System.out.println("\n\uD83E\uDDED\uD83E\uDDED\uD83E\uDDED Consultar Histórico de Experiências \uD83E\uDDED\uD83E\uDDED\uD83E\uDDED");
 
                     break;
 
