@@ -1,10 +1,16 @@
 package Views;
 
 import Controllers.ClienteController;
+import Cores.ConsoleColors;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe responsável por exibir o menu de opções disponíveis ao cliente.
+ * Permite ao cliente consultar quartos e experiências, bem como avaliar uma experiência.
+ */
 public class ClienteView {
 
     private ClienteController clienteController;
@@ -13,6 +19,10 @@ public class ClienteView {
         this.clienteController = new ClienteController();
     }
 
+    /**
+     * Exibe o menu de cliente e processa as opções selecionadas pelo utilizador.
+     * As opções incluem consultar quartos, experiências, experiências favoritas e avaliação.
+     */
     public void clienteMenu() {
 
         Scanner input = new Scanner(System.in);
@@ -20,12 +30,17 @@ public class ClienteView {
 
         do {
 
-            System.out.println("\n\n⭐⭐⭐⭐⭐ MENU CLIENTE ⭐⭐⭐⭐⭐");
-            System.out.println("1. Consultar Quartos Disponíveis");
+            System.out.println(ConsoleColors.YELLOW_BOLD + "\n⭐⭐⭐⭐⭐ MENU CLIENTE ⭐⭐⭐⭐⭐\n" + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.CYAN + "1. Consultar Quartos Disponíveis" + ConsoleColors.RESET);
+            System.out.println("   ----------------------------------");
             System.out.println("2. Consultar Experiências Disponíveis");
+            System.out.println("   ----------------------------------");
             System.out.println("3. Consultar Experiência Favorita");
+            System.out.println("   ----------------------------------");
             System.out.println("4. Consultar Experiência Top-Seller");
+            System.out.println("   ----------------------------------");
             System.out.println("5. Avaliar uma Experiência");
+            System.out.println("   ----------------------------------");
             System.out.println("0. Voltar\n");
 
             System.out.print("Opção: ");
@@ -33,8 +48,8 @@ public class ClienteView {
 
             switch (opcaoCliente){
                 case 1:
-                    System.out.println("\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Disponíveis \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC");
-
+                    System.out.println(ConsoleColors.YELLOW_BOLD + "\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Disponíveis \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\n" + ConsoleColors.RESET);
+                    clienteController.consultarQuartosDisponiveis();
                     break;
 
                 case 2 :
@@ -44,7 +59,6 @@ public class ClienteView {
 
                 case 3:
                     System.out.println("\n\uD83D\uDC47\uD83D\uDC47\uD83D\uDC47 Consultar Experiência Favorita \uD83D\uDC47\uD83D\uDC47\uD83D\uDC47");
-
                     break;
 
                 case 4:

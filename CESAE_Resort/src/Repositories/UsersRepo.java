@@ -5,6 +5,10 @@ import Tools.CSVFileReader;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Classe responsável por carregar e armazenar a lista de utilizadores
+ * a partir do ficheiro CSV "logins.csv".
+ */
 public class UsersRepo {
 
         private ArrayList<User> userArray;

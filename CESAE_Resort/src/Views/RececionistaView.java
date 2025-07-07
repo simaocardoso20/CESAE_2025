@@ -1,19 +1,32 @@
 package Views;
 
-import Controllers.AdminController;
-import Controllers.GuiaController;
 import Controllers.RececionistaController;
+import Cores.ConsoleColors;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Classe responsável pela interface de interação do rececionista.
+ * Permite aceder a funcionalidades como consulta de quartos, reservas e experiências.
+ */
 public class RececionistaView {
 
     private RececionistaController rececionistaController;
 
+    /**
+     * Construtor da classe RececionistaView.
+     * Inicializa o controlador do rececionista.
+     *
+     * @throws FileNotFoundException se o controlador não conseguir aceder aos ficheiros necessários.
+     */
     public RececionistaView() throws FileNotFoundException {
         this.rececionistaController = new RececionistaController();
     }
+
+    /**
+     * Exibe o menu principal do rececionista, permitindo a navegação pelas diferentes opções disponíveis.
+     */
     public void rececionistaMenu() {
 
         Scanner input = new Scanner(System.in);
@@ -21,12 +34,17 @@ public class RececionistaView {
 
         do {
 
-            System.out.println("\n\n\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F MENU RECECIONISTA \uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F");
-            System.out.println("1. Consultar Quartos Disponíveis");
+            System.out.println(ConsoleColors.YELLOW_BOLD + "\n\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F MENU RECECIONISTA \uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\uD83D\uDECE\uFE0F\n"+ ConsoleColors.RESET);
+            System.out.println(ConsoleColors.CYAN + "1. Consultar Quartos Disponíveis" + ConsoleColors.RESET);
+            System.out.println("   -----------------------------");
             System.out.println("2. Consultar Quartos Reservados");
+            System.out.println("   -----------------------------");
             System.out.println("3. Consultar Reservas Atuais");
+            System.out.println("   -----------------------------");
             System.out.println("4. Efetuar uma Reserva");
+            System.out.println("   -----------------------------");
             System.out.println("5. Reservar uma Experiência");
+            System.out.println("   -----------------------------");
             System.out.println("0. Voltar\n");
 
             System.out.print("Opção: ");
@@ -34,12 +52,12 @@ public class RececionistaView {
 
             switch (opcaoRececionista) {
                 case 1:
-                    System.out.println("\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Disponíveis \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC");
-
+                    System.out.println(ConsoleColors.YELLOW_BOLD + "\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Disponíveis \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\n" + ConsoleColors.RESET);
+                    rececionistaController.consultarQuartosDisponiveisNaSemanaAtual();
                     break;
 
                 case 2:
-                    System.out.println("\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Reservados \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC");
+                    System.out.println("\n\uD83D\uDECC\uD83D\uDECC\uD83D\uDECC Consultar Quartos Reservados \uD83D\uDECC\uD83D\uDECC\uD83D\uDECC");
 
                     break;
 

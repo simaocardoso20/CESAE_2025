@@ -7,8 +7,19 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe responsável por ler ficheiros CSV e converter os dados em objetos das classes do modelo.
+ * Cada metodo lê um tipo de ficheiro diferente (ex: Utilizadores, Clientes, Experiências, etc.).
+ */
 public class CSVFileReader {
 
+    /**
+     * Lê um ficheiro CSV de utilizadores e devolve uma lista de objetos User.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de utilizadores.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<User> usersFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -49,7 +60,13 @@ public class CSVFileReader {
         return usersArray;
     }
 
-
+    /**
+     * Lê um ficheiro CSV de clientes e devolve uma lista de objetos Cliente.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de clientes.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<Cliente> clientesFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -99,7 +116,13 @@ public class CSVFileReader {
         return clienteArray;
     }
 
-
+    /**
+     * Lê um ficheiro CSV de experiências e devolve uma lista de objetos Experiencia.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de experiências.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<Experiencia> experienciasFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -143,7 +166,13 @@ public class CSVFileReader {
         return experienciaArray;
     }
 
-
+    /**
+     * Lê um ficheiro CSV de guias de experiências e devolve uma lista de objetos GuiaExperiencia.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de guias de experiências.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<GuiaExperiencia> guiasExperienciasFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -186,7 +215,13 @@ public class CSVFileReader {
         return guiaExperienciaArray;
     }
 
-
+    /**
+     * Lê um ficheiro CSV de quartos e devolve uma lista de objetos Quarto.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de quartos.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<Quarto> quartosFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -226,6 +261,13 @@ public class CSVFileReader {
         return quartosArray;
     }
 
+    /**
+     * Lê um ficheiro CSV com ratings de experiências e devolve uma lista de objetos RatingExperiencia.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de ratings de experiências.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<RatingExperiencia> ratingsExperienciasFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -268,7 +310,13 @@ public class CSVFileReader {
         return ratingsExperienciasArray;
     }
 
-
+    /**
+     * Lê um ficheiro CSV com reservas de quartos e devolve uma lista de objetos ReservaQuarto.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de reservas de quartos.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<ReservaQuarto> reservasQuartosFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -312,6 +360,13 @@ public class CSVFileReader {
         return reservasQuartosArray;
     }
 
+    /**
+     * Lê um ficheiro CSV com tipologias de quartos e devolve uma lista de objetos Tipologia.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de tipologias de quartos.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<Tipologia> tipologiasFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado
@@ -352,7 +407,13 @@ public class CSVFileReader {
         return tipologiasArray;
     }
 
-
+    /**
+     * Lê um ficheiro CSV com vendas de experiências e devolve uma lista de objetos VendaExperiencia.
+     *
+     * @param filePath Caminho para o ficheiro CSV.
+     * @return Lista de vendas de experiências.
+     * @throws FileNotFoundException Se o ficheiro não for encontrado.
+     */
     public ArrayList<VendaExperiencia> VendasExperienciasFileReader(String filePath) throws FileNotFoundException {
 
         // Abrimos o ficheiro e criamos um Scanner associado

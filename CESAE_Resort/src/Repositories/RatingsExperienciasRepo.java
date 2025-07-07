@@ -1,13 +1,15 @@
 package Repositories;
 
-import Models.Quarto;
 import Models.RatingExperiencia;
-import Models.User;
 import Tools.CSVFileReader;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Classe responsável por carregar e armazenar a lista de avaliações
+ * de experiências a partir de um ficheiro CSV.
+ */
 public class RatingsExperienciasRepo {
 
     private ArrayList<RatingExperiencia> RatingExperienciaArrayList;

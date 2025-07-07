@@ -1,11 +1,15 @@
 package Views;
 
 import Controllers.AdminController;
-import Controllers.ClienteController;
+import Cores.ConsoleColors;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Classe responsável pela interface de interação com o administrador.
+ * Apresenta um menu com várias opções de consulta e gestão do sistema.
+ */
 public class AdminView {
 
     private AdminController adminController;
@@ -14,16 +18,22 @@ public class AdminView {
         this.adminController = new AdminController();
     }
 
+    /**
+     * Exibe o menu de administração e processa as opções selecionadas pelo utilizador.
+     * O menu permite consultar dados estatísticos como receitas, reservas e informações sobre quartos e experiências.
+     *
+     * @throws FileNotFoundException se ocorrer erro ao aceder aos ficheiros de dados.
+     */
     public void adminMenu() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcaoAdmin;
 
         do {
 
-            System.out.println("\n\n\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC MENU ADMIN \uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC");
+            System.out.println(ConsoleColors.YELLOW_BOLD + "\n\n\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC MENU ADMIN \uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\uD83D\uDC68\u200D\uD83D\uDCBC\n" + ConsoleColors.RESET);
             System.out.println("1. Consultar Total de Reservas");
             System.out.println("2. Consultar Total de Receitas");
-            System.out.println("3. Consultar Reservas/Receitas Mensais");
+            System.out.println(ConsoleColors.CYAN + "3. Consultar Reservas/Receitas Mensais" + ConsoleColors.RESET);
             System.out.println("4. Consultar Tipologia de Quarto Mais Reservada");
             System.out.println("5. Consultar Experiência Mais Procurada (Adultos)");
             System.out.println("6. Consultar Experiência Mais Procurada (Crianças)");
@@ -47,7 +57,8 @@ public class AdminView {
 
 
                 case 3:
-                    System.out.println("\n\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2 Consultar Reservas/Receitas Mensais \uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2");
+                    System.out.println(ConsoleColors.GREEN_BOLD + "\n\uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2 Consultar Reservas/Receitas Mensais \uD83D\uDCB2\uD83D\uDCB2\uD83D\uDCB2\n" + ConsoleColors.RESET);
+                    adminController.consultarReceitasMensais();
                     break;
 
 

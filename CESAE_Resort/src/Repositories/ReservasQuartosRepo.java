@@ -1,12 +1,15 @@
 package Repositories;
 
-import Models.Quarto;
 import Models.ReservaQuarto;
 import Tools.CSVFileReader;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Classe responsável por carregar e armazenar a lista de reservas de quartos
+ * a partir de um ficheiro CSV.
+ */
 public class ReservasQuartosRepo {
 
     private ArrayList<ReservaQuarto> reservaQuartoArrayList;

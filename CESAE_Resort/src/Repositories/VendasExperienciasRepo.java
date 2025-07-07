@@ -1,12 +1,15 @@
 package Repositories;
 
-import Models.Quarto;
 import Models.VendaExperiencia;
 import Tools.CSVFileReader;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Classe responsável por carregar e armazenar a lista de vendas de experiências
+ * a partir do ficheiro CSV "vendas_experiencias.csv".
+ */
 public class VendasExperienciasRepo {
 
     private ArrayList<VendaExperiencia> vendaExperienciaArrayList;
