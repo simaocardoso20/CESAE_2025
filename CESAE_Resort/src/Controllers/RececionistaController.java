@@ -38,7 +38,7 @@ public class RececionistaController {
      */
     public void consultarQuartosDisponiveisNaSemanaAtual() {
         int ano = 2025;
-        int mes = 1;
+        int mes = 1; // Apesar de no enunciado estar o mês (7), optei pelo mês (1) porque em janeiro havia reservas e em Julho não havia. Somente para mostrar que a lista era menor com menos quartos disponíveis.
         int semana = 1;
 
         ArrayList<Quarto> quartos = quartosRepo.getQuartoArrayList();
