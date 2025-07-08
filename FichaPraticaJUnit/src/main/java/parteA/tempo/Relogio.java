@@ -37,6 +37,46 @@ public class Relogio {
         this.anoFabrico = anoFabrico;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public int getHora() {
+        return hora;
+    }
+
+    public int getMinuto() {
+        return minuto;
+    }
+
+    public int getSegundo() {
+        return segundo;
+    }
+
+    public int getAnoFabrico() {
+        return anoFabrico;
+    }
+    
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setHora(int hora) {
+        this.hora = hora;
+    }
+
+    public void setMinuto(int minuto) {
+        this.minuto = minuto;
+    }
+
+    public void setSegundo(int segundo) {
+        this.segundo = segundo;
+    }
+
+    public void setAnoFabrico(int anoFabrico) {
+        this.anoFabrico = anoFabrico;
+    }
+
     /**
      * Ajusta (altera) a hora do relógio, se estiver no intervalo 0..23.
      * Caso contrário, mantém o valor anterior.
@@ -127,5 +167,8 @@ public class Relogio {
                 + ", Hora: " + this.hora
                 + ", Minuto: " + this.minuto
                 + ", Segundo: " + this.segundo;
+    }
+
+    public void ajustarMinuto(int i) {
     }
 }
