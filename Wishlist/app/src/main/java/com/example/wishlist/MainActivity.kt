@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             arrayUserList.add(User("francesco", "fcporto", "Francisco", 31))
             arrayUserList.add(User("robs", "singer", "Roberto", 27))
             arrayUserList.add(User("luisie", "coach", "Luis", 33))
-            arrayUserList.add(User("gabs", "pompom", "Gabriela", 10))
+            arrayUserList.add(User("gabs", "pompom", "Gabriela", 9))
             arrayUserList.add(User("nicos", "player", "Rodrigo", 15))
-            arrayUserList.add(User("joy", "solange", "Joana", 55))
+            arrayUserList.add(User("joy", "solange", "Joana", 4))
 
 
 
