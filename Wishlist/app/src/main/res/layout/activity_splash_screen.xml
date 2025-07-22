@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/book_sky"
+    android:gravity="center"
+    tools:context=".SplashScreenActivity">
+
+    <TextView
+        android:id="@+id/splash_livro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bookzilla"
+        android:textSize="60sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/dancingscriptbold"
+        android:layout_marginBottom="170dp">
+
+    </TextView>
+
+
+</LinearLayout>
