@@ -22,15 +22,16 @@ class SplashScreenWelcomeActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val i = intent
-        var name = i.extras?.getString("name")
-        var age = i.extras?.getString("age")
 
-        binding.textUserName.text = "$name !"
+        val receivedIntent = intent
+        val userName = receivedIntent.extras?.getString("name")
+        val userAge = receivedIntent.extras?.getInt("age", 0)
 
+        binding.textUserName.text = " $userName "
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, WishListActivity::class.java)
+            intent.putExtra("USER_AGE", userAge)
             startActivity(intent)
             finish()
         }, 2000)

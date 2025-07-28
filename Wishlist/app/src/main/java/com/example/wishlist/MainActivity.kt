@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
             val arrayUserList = ArrayList<User>()
             arrayUserList.add(User("simon", "deejay", "Simão", 45))
             arrayUserList.add(User("alexy", "catwoman", "Alexandra", 32))
-            arrayUserList.add(User("francesco", "fcporto", "Francisco", 31))
-            arrayUserList.add(User("robs", "singer", "Roberto", 27))
-            arrayUserList.add(User("luisie", "coach", "Luis", 33))
-            arrayUserList.add(User("gabs", "pompom", "Gabriela", 9))
-            arrayUserList.add(User("nicos", "player", "Rodrigo", 15))
-            arrayUserList.add(User("joy", "solange", "Joana", 4))
+            arrayUserList.add(User("francesco", "fcporto", "Francisco", 17))
+            arrayUserList.add(User("robs", "singer", "Roberto", 15))
+            arrayUserList.add(User("luisie", "coach", "Luis", 13))
+            arrayUserList.add(User("gabs", "pompom", "Gabriela", 11))
+            arrayUserList.add(User("nicos", "player", "Rodrigo", 8))
+            arrayUserList.add(User("joy", "solange", "Joana", 6))
 
 
 
