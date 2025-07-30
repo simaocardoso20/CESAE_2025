@@ -34,6 +34,6 @@ class SplashScreenWelcomeActivity : AppCompatActivity() {
             intent.putExtra("USER_AGE", userAge)
             startActivity(intent)
             finish()
-        }, 2000)
+        }, 3000)
     }
 }

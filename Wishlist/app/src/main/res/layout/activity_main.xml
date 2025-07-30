@@ -12,23 +12,24 @@
 
     <EditText
         android:id="@+id/editUsername"
-        android:layout_width="120dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:textAlignment="center"
         android:inputType="textPersonName"
         android:padding="15dp"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/editPassword"
-        android:layout_width="120dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:textAlignment="center"
         android:inputType="textPassword"
         android:padding="15dp"
-        android:layout_marginBottom="160dp"/>
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="140dp"/>
 
 
     <Button
@@ -38,7 +39,7 @@
         android:text="Login"
         android:backgroundTint="@color/black"
         android:textColor="@android:color/white"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="120dp" />
 
 
 </LinearLayout>
