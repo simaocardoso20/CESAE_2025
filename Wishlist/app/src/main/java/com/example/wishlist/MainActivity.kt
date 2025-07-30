@@ -14,16 +14,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(binding.root)
 
-
         binding.buttonLogin.setOnClickListener {
-
-            var username = binding.editUsername.text.toString()
-            var password = binding.editPassword.text.toString()
+            val username = binding.editUsername.text.toString()
+            val password = binding.editPassword.text.toString()
             var inside: Boolean = false
-
 
             val arrayUserList = ArrayList<User>()
             arrayUserList.add(User("simon", "deejay", "Simão", 45))
@@ -35,38 +31,37 @@ class MainActivity : AppCompatActivity() {
             arrayUserList.add(User("nicos", "player", "Rodrigo", 8))
             arrayUserList.add(User("joy", "solange", "Joana", 6))
 
+            // Verificar se os campos estão vazios
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
+            // Verificar se o login está correto
+            for (item in arrayUserList) {
+                if (username == item.username && password == item.password) {
+                    inside = true
 
-            if (username.isNullOrEmpty() || password.isNullOrEmpty()) {
-
-                Toast.makeText(applicationContext, "Login Incompleto", Toast.LENGTH_SHORT).show()
-
-            } else {
-                for (item in arrayUserList) {
-                    if (username == item.username && password == item.password) {
-
-                        inside = true
-
-                            val i: Intent = Intent(this, SplashScreenWelcomeActivity::class.java)
-                            i.putExtra("name", item.name)
-                            i.putExtra("age", item.age)
-                            startActivity(i)
-                            break
-                        }
-                    }
-
-                    if (!inside) {
-                        Toast.makeText(applicationContext, "Login Inválido", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-
-                    binding.editUsername.setText("")
-                    binding.editPassword.setText("")
-
+                    // Ir para a próxima activity e guardar o nome e idade do user
+                    val intent = Intent(this, SplashScreenWelcomeActivity::class.java)
+                    intent.putExtra("name", item.name)
+                    intent.putExtra("age", item.age)
+                    startActivity(intent)
+                    break
                 }
             }
+
+            // Se não encontrar o user
+            if (!inside) {
+                Toast.makeText(this, "Invalid login", Toast.LENGTH_SHORT).show()
+            }
+
+            // Limpar os campos
+            binding.editUsername.setText("")
+            binding.editPassword.setText("")
         }
     }
+}
 
 
 

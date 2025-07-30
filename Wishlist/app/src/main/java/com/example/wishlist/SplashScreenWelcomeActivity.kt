@@ -4,11 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.wishlist.databinding.ActivitySplashScreenBinding
 import com.example.wishlist.databinding.ActivitySplashScreenWelcomeBinding
 
 class SplashScreenWelcomeActivity : AppCompatActivity() {
@@ -19,16 +15,16 @@ class SplashScreenWelcomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(binding.root)
 
+        // Receber dados da activity anterior (nome e idade)
+        val userName = intent.getStringExtra("name") ?: "Utilizador"
+        val userAge = intent.getIntExtra("age", 0)
 
-        val receivedIntent = intent
-        val userName = receivedIntent.extras?.getString("name")
-        val userAge = receivedIntent.extras?.getInt("age", 0)
+        // Mostrar nome do utilizador
+        binding.textUserName.text = "$userName"
 
-        binding.textUserName.text = " $userName "
-
+        // Ir para a próxima activity depois de 3 seg e guardar a idade do user
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, WishListActivity::class.java)
             intent.putExtra("USER_AGE", userAge)

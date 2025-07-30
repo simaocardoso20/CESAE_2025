@@ -14,16 +14,15 @@ class SummaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-
+        // Receber dados da activity anterior
         val totalCost = intent.getDoubleExtra("TOTAL_COST", 0.0)
         val categoriesCount = intent.getIntExtra("CATEGORIES_COUNT", 0)
 
-        // Para evitar que o resultado tenha várias casas décimais
-        val formattedCost = (totalCost * 100).toInt().toDouble() / 100
+        // Formatar o preço para 2 casas decimais
+        val formattedCost = String.format("%.2f", totalCost)
 
-        binding.TotalCost.text = "Total coast: " + formattedCost + "€"
+        // Mostrar os resultados
+        binding.TotalCost.text = "Total Cost: $formattedCost€"
         binding.CategoriesCount.text = "Different Categories: $categoriesCount"
-
-
-        }
     }
+}
