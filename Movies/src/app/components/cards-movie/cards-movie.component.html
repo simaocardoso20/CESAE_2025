@@ -1,0 +1,14 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let card of cards">
+      <app-card-movie
+        [year]="card.year"
+        [title]="card.title"
+        [description]="card.description"
+        [poster]="card.poster"
+      ></app-card-movie>
+    </div>
+  </div>
+</div>
+
+
