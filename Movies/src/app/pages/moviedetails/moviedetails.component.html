@@ -1,0 +1,64 @@
+<header class="page-header">
+  Movie Details
+</header>
+
+<div class="catalog-container">
+
+
+  <img
+    src="https://miro.medium.com/0*3bgyOgYZSKn-X0Uh.jpg"
+    alt="Movie Poster Fixo"
+    class="movie-poster">
+
+  <div class="movie-info">
+    <form>
+      <mdb-form-control>
+        <input
+          name="searchDetails"
+          [(ngModel)]="searchDetails"
+          mdbInput
+          type="text"
+          id="form1"
+          class="form-control"
+          placeholder="Enter movie ID"/>
+        <label mdbLabel class="form-label" for="form1">Search</label>
+      </mdb-form-control>
+    </form>
+
+    <button
+      (click)="getMovieDetails()"
+      type="button"
+      class="btn btn-black w-100 mt-3"
+      mdbRipple>
+      Search
+    </button>
+
+    <div *ngIf="movieDetails && movieDetails.Response" class="searched-movie card shadow mt-4 p-4">
+      <img [src]="movieDetails.Poster" [alt]="movieDetails.Title" class="searched-movie-poster mb-4">
+
+      <h2 class="movie-title">{{ movieDetails.Title }} ({{ movieDetails.Year }})</h2>
+
+      <div class="movie-details">
+        <p><strong>Genre:</strong> {{ movieDetails.Genre }}</p>
+        <p><strong>Director:</strong> {{ movieDetails.Director }}</p>
+        <p><strong>Actors:</strong> {{ movieDetails.Actors }}</p>
+        <p><strong>Plot:</strong> {{ movieDetails.Plot }}</p>
+        <p><strong>IMDB Rating:</strong> {{ movieDetails.imdbRating }}</p>
+        <p><strong>Box Office:</strong> {{ movieDetails.BoxOffice }}</p>
+        <p><strong>Rated:</strong> {{ movieDetails.Rated }}</p>
+        <p><strong>Released:</strong> {{ movieDetails.Released }}</p>
+        <p><strong>Runtime:</strong> {{ movieDetails.Runtime }}</p>
+        <p><strong>Writer:</strong> {{ movieDetails.Writer }}</p>
+        <p><strong>Language:</strong> {{ movieDetails.Language }}</p>
+        <p><strong>Country:</strong> {{ movieDetails.Country }}</p>
+        <p><strong>Awards:</strong> {{ movieDetails.Awards }}</p>
+        <p><strong>Metascore:</strong> {{ movieDetails.Metascore }}</p>
+        <p><strong>imdbVotes:</strong> {{ movieDetails.imdbVotes }}</p>
+        <p><strong>Type:</strong> {{ movieDetails.Type }}</p>
+        <p><strong>DVD:</strong> {{ movieDetails.DVD }}</p>
+        <p><strong>Production:</strong> {{ movieDetails.Production }}</p>
+        <p><strong>Website:</strong> {{ movieDetails.Website }}</p>
+      </div>
+    </div>
+  </div>
+</div>
